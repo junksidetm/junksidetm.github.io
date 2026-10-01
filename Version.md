@@ -132,3 +132,10 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
 - **Files Modified**:
   - `Version.md` (Appended)
 - **Verification**: Verified branch structure and git remotes.
+
+## [2026-10-01 12:47:00 IST] - README Documentation GitHub Links Migration
+- **Action**: Updated README.md documentation links, badges, and author references to point to active GitHub account `junksidetm` while preserving GitLab and Codeberg mappings.
+- **Files Modified**:
+  - `README.md`
+  - `Version.md`
+- **Status**: 100% (Completed & Synced)

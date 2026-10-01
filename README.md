@@ -3,10 +3,10 @@
   <h1>Atelier — Software Forge & Ecosystem Hub</h1>
   <p><b>The centralized showcase and dynamic portfolio for @mrdarksidetm's software ecosystem.</b></p>
   <p>
-    <a href="https://mrdarksidetm.github.io/"><strong>🚀 Visit Live Forge on GitHub Pages</strong></a>
+    <a href="https://junksidetm.github.io/"><strong>🚀 Visit Live Forge on GitHub Pages</strong></a>
   </p>
   <p>
-    <a href="https://github.com/mrdarksidetm/mrdarksidetm.github.io/actions"><img src="https://github.com/mrdarksidetm/mrdarksidetm.github.io/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Pages Deployment" /></a>
+    <a href="https://github.com/junksidetm/junksidetm.github.io/actions"><img src="https://github.com/junksidetm/junksidetm.github.io/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Pages Deployment" /></a>
     <img src="https://img.shields.io/badge/Design-Material_3_Expressive-0061A4?style=flat-square" alt="Material 3 Expressive" />
     <img src="https://img.shields.io/badge/Style-Vector_Drawable_Theme-269bff?style=flat-square" alt="Vector Drawable Theme" />
     <img src="https://img.shields.io/badge/Auto--Sync-GitHub_REST_API-success?style=flat-square" alt="GitHub API Auto-Sync" />
@@ -18,7 +18,7 @@
 
 ## 🌟 Overview
 
-**Atelier** is the official central portal and software forge for all applications, utilities, and system toolkits engineered by **Abhijeet Yadav** ([@mrdarksidetm](https://github.com/mrdarksidetm)).
+**Atelier** is the official central portal and software forge for all applications, utilities, and system toolkits engineered by **Abhijeet Yadav** ([@junksidetm](https://github.com/junksidetm)).
 
 Built from the ground up to follow the sleek **Vector Drawable** dark Material 3 Expressive design language (`#121212` canvas, `#1e1e1e` surface containers, `#269bff` electric blue accents, and `DM Sans` + `JetBrains Mono` typography), the site features:
 1. **Curated Showcase**: Detailed interactive presentation of all flagship mobile, web, and desktop products.
@@ -31,16 +31,16 @@ Built from the ground up to follow the sleek **Vector Drawable** dark Material 3
 
 | Project | Platform | Design Language & Stack | Live Experience |
 | :--- | :--- | :--- | :--- |
-| **[VectorDrawable to SVG](https://github.com/mrdarksidetm/vector-drawable-nextjs)** | Web Utility | Next.js 13, React 18, CodeMirror 6 | [Live Web App](https://mrdarksidetm.github.io/vector-drawable-nextjs/) |
-| **[Wallet (Native Compose)](https://github.com/mrdarksidetm/Wallet)** | Native Android | Jetpack Compose (BOM 2024.12.01), Room SQLite, Canvas Hero | [Explore Wallet](https://mrdarksidetm.github.io/Wallet/) |
-| **[Wallet-Flutter](https://github.com/mrdarksidetm/Wallet-Flutter)** | Cross-Platform | Flutter 3.x, Isar Embedded NoSQL, Riverpod | [Explore Showcase](https://mrdarksidetm.github.io/Wallet-Flutter/) |
-| **[Wasm](https://github.com/mrdarksidetm/wasm)** | Native Android | WhatsApp & Instagram Parsers, AudioPlayer, SAF | [Explore Wasm](https://mrdarksidetm.github.io/wasm/) |
-| **[Battery Mode Checker](https://github.com/mrdarksidetm/Android-Battery-Unrestricted-Checker)** | Native Android | Shizuku Privileged Binder IPC, Compose Canvas | [Explore ABUC](https://mrdarksidetm.github.io/Android-Battery-Unrestricted-Checker/) |
-| **[WinForge](https://github.com/mrdarksidetm/WinForge)** | Windows 11 | PowerShell, AI/Recall Purge, Game Mode, Winget | [Launch WinForge](https://mrdarksidetm.github.io/WinForge/) |
-| **[Brave Origin Unlocker](https://github.com/mrdarksidetm/Brave-Origin-Unlocker-Windows)** | Windows Automation | Native PowerShell, Local State JSON Patcher | [Launch Guide](https://mrdarksidetm.github.io/Brave-Origin-Unlocker-Windows/) |
-| **[Google Emoji 3D](https://github.com/mrdarksidetm/Google-Emoji-3D)** | Font Mod / System | OpenType sbix TrueType (TTF), 3,900+ 3D Assets, Rolling Release | [Download TTF](https://github.com/mrdarksidetm/Google-Emoji-3D/releases/latest) |
-| **[Gboard Patches](https://github.com/mrdarksidetm/Gboard-patches)** | Keyboard Mod | Morphe Source (`.mpp`), Material 3 Expressive UI, Custom TTF Font, Rambler Voice | [Explore Patches](https://github.com/mrdarksidetm/Gboard-patches/releases/latest) |
-| **[June](https://github.com/mrdarksidetm/June)** | Native Android | Kotlin, Jetpack Compose, Multimedia Journaling | [GitHub Repository](https://github.com/mrdarksidetm/June) |
+| **[VectorDrawable to SVG](https://github.com/junksidetm/vector-drawable-nextjs)** | Web Utility | Next.js 13, React 18, CodeMirror 6 | [Live Web App](https://junksidetm.github.io/vector-drawable-nextjs/) |
+| **[Wallet (Native Compose)](https://github.com/junksidetm/Wallet)** | Native Android | Jetpack Compose (BOM 2024.12.01), Room SQLite, Canvas Hero | [Explore Wallet](https://junksidetm.github.io/Wallet/) |
+| **[Wallet-Flutter](https://github.com/junksidetm/Wallet-Flutter)** | Cross-Platform | Flutter 3.x, Isar Embedded NoSQL, Riverpod | [Explore Showcase](https://junksidetm.github.io/Wallet-Flutter/) |
+| **[Wasm](https://github.com/junksidetm/wasm)** | Native Android | WhatsApp & Instagram Parsers, AudioPlayer, SAF | [Explore Wasm](https://junksidetm.github.io/wasm/) |
+| **[Battery Mode Checker](https://github.com/junksidetm/Android-Battery-Unrestricted-Checker)** | Native Android | Shizuku Privileged Binder IPC, Compose Canvas | [Explore ABUC](https://junksidetm.github.io/Android-Battery-Unrestricted-Checker/) |
+| **[WinForge](https://github.com/junksidetm/WinForge)** | Windows 11 | PowerShell, AI/Recall Purge, Game Mode, Winget | [Launch WinForge](https://junksidetm.github.io/WinForge/) |
+| **[Brave Origin Unlocker](https://github.com/junksidetm/Brave-Origin-Unlocker-Windows)** | Windows Automation | Native PowerShell, Local State JSON Patcher | [Launch Guide](https://junksidetm.github.io/Brave-Origin-Unlocker-Windows/) |
+| **[Google Emoji 3D](https://github.com/junksidetm/Google-Emoji-3D)** | Font Mod / System | OpenType sbix TrueType (TTF), 3,900+ 3D Assets, Rolling Release | [Download TTF](https://github.com/junksidetm/Google-Emoji-3D/releases/latest) |
+| **[Gboard Patches](https://github.com/junksidetm/Gboard-patches)** | Keyboard Mod | Morphe Source (`.mpp`), Material 3 Expressive UI, Custom TTF Font, Rambler Voice | [Explore Patches](https://github.com/junksidetm/Gboard-patches/releases/latest) |
+| **[June](https://github.com/junksidetm/June)** | Native Android | Kotlin, Jetpack Compose, Multimedia Journaling | [GitHub Repository](https://github.com/junksidetm/June) |
 
 ---
 
@@ -67,7 +67,7 @@ The master hub automatically syncs with GitHub's REST API at runtime:
 
 ## 👤 Developer & Philosophy
 
-Built with ❤️ by **Abhijeet Yadav** ([@mrdarksidetm](https://github.com/mrdarksidetm)).
+Built with ❤️ by **Abhijeet Yadav** ([@junksidetm](https://github.com/junksidetm)).
 
 All software in this forge follows the **Local-First, Privacy-First Mandate**:
 - Zero telemetry and zero cloud dependencies.
