@@ -6,6 +6,9 @@
     <a href="https://junksidetm.github.io/"><strong>🚀 Visit Live Forge on GitHub Pages</strong></a>
   </p>
   <p>
+    <a href="https://github.com/junksidetm/junksidetm.github.io"><img src="https://img.shields.io/badge/GitHub-Main-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub Main" /></a>
+    <a href="https://codeberg.org/mrdarksidetm/pages"><img src="https://img.shields.io/badge/Codeberg-Mirror-2185d0?style=flat-square&logo=codeberg&logoColor=white" alt="Codeberg Mirror" /></a>
+    <a href="https://gitlab.com/mrdarksidetm/mrdarksidetm.github.io"><img src="https://img.shields.io/badge/GitLab-Mirror-fc6d26?style=flat-square&logo=gitlab&logoColor=white" alt="GitLab Mirror" /></a>
     <a href="https://github.com/junksidetm/junksidetm.github.io/actions"><img src="https://github.com/junksidetm/junksidetm.github.io/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Pages Deployment" /></a>
     <img src="https://img.shields.io/badge/Design-Material_3_Expressive-0061A4?style=flat-square" alt="Material 3 Expressive" />
     <img src="https://img.shields.io/badge/Style-Vector_Drawable_Theme-269bff?style=flat-square" alt="Vector Drawable Theme" />
@@ -73,6 +76,14 @@ All software in this forge follows the **Local-First, Privacy-First Mandate**:
 - Zero telemetry and zero cloud dependencies.
 - Native performance with 60–120 FPS hardware acceleration.
 - Bounded scope with uncompromising single-purpose utility precision.
+
+---
+
+## 🌐 Source Mirrors
+
+- **Main (GitHub)**: [github.com/junksidetm/junksidetm.github.io](https://github.com/junksidetm/junksidetm.github.io)
+- **Mirror (Codeberg)**: [codeberg.org/mrdarksidetm/pages](https://codeberg.org/mrdarksidetm/pages)
+- **Mirror (GitLab)**: [gitlab.com/mrdarksidetm/mrdarksidetm.github.io](https://gitlab.com/mrdarksidetm/mrdarksidetm.github.io)
 
 ---
 
