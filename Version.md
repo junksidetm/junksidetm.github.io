@@ -191,3 +191,10 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
   - `.github/workflows/deploy.yml`
   - `Version.md`
 - **Status**: 100% (Completed)
+
+## [2026-10-10 00:04:00 IST] - Live Repository Slug Harmonization
+- **Action**: Harmonized showcase and repository URLs in `src/data/projects.ts` to exactly mirror live GitHub Pages paths (`/wasm/` lowercase and `/Brave-Origin-Unlocker-Windows/`).
+- **Files Modified**:
+  - `src/data/projects.ts`
+  - `Version.md`
+- **Status**: 100% (Completed)
