@@ -155,3 +155,32 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
   - `.forgejo/workflows/pages.yml`: Codeberg Actions workflow publishing Vite build to `pages` branch.
   - `Version.md`: Appended tracking entry.
 - **Status**: 100% (Completed & Synced)
+
+## [2026-10-09 22:15:00 IST] - Ecosystem Pages Navigation Migration
+- **Action**: Migrated flagship showcase URLs in index.html from `mrdarksidetm.github.io` to `junksidetm.github.io`.
+- **Files Modified**:
+  - `index.html`: Updated all flagship application launch links to point to active `junksidetm.github.io` hosts.
+  - `Version.md`: Appended ledger entry.
+- **Status**: 100% (Completed)
+
+## [2026-10-09 23:55:00 IST] - Complete Rebuild with Next.js 14, Material 3 Expressive & High-Craft Architecture
+- **Action**: Completely restructured and rebuilt `junksidetm.github.io` from scratch as a Next.js 14 App Router project with Tailwind CSS, Material 3 Expressive design tokens, and static export CI deployment.
+- **Repository Isolation**:
+  - Renamed local workspace directory to `junksidetm.github.io`.
+  - Removed mirror remotes (`codeberg`, `gitlab`) to isolate this repository exclusively to `junksidetm/junksidetm.github.io`.
+  - Removed `.gitlab-ci.yml` and `.forgejo/` configurations.
+- **Components & Architecture Added**:
+  - `package.json`: Configured Next.js 14, React 18, Tailwind CSS, Lucide React, and pnpm package management.
+  - `next.config.mjs`: Configured `output: 'export'`, `trailingSlash: true`, and unoptimized image export for GitHub Pages.
+  - `tailwind.config.ts` & `src/app/globals.css`: Implemented Material 3 Expressive color palette, glass panels, and mesh backdrops.
+  - `src/data/projects.ts`: Comprehensive data catalog of all 13 projects with verified APK release and live showcase URLs.
+  - `src/components/Navbar.tsx`: Sticky glass navigation with search modal trigger and live deployment status.
+  - `src/components/Hero.tsx`: Editorial typography, live statistics banner, and real-time category switcher.
+  - `src/components/ProjectCard.tsx`: Interactive bento card featuring direct APK downloads, live links, and QR code triggers.
+  - `src/components/QrCodeModal.tsx`: Dynamic QR code generator modal enabling phone camera scanning for instant APK installation.
+  - `src/components/CommandPalette.tsx`: Keyboard-driven spotlight launcher (`⌘K` / `/`) with one-click git clone copy.
+  - `src/components/Footer.tsx`: Cryptographic SSH commit verification documentation and social links.
+  - `src/app/page.tsx`: Flagship dual-architecture spotlight (Compose vs Flutter) and responsive bento grid.
+  - `src/app/about/page.tsx`: System engineering profile, principles, and hardware specification documentation.
+  - `.github/workflows/deploy.yml`: Autonomous cloud-based pnpm CI/CD building static export and deploying directly to GitHub Pages.
+- **Status**: 100% (Completed)

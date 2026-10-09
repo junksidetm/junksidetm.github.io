@@ -1,4 +1,4 @@
-name: Deploy Web Portfolio to GitHub Pages
+name: Deploy Next.js to GitHub Pages
 
 on:
   push:
@@ -29,24 +29,25 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20
           cache: "pnpm"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
+          static_site_generator: next
           enablement: true
 
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
-      - name: Build Application
+      - name: Build Next.js Static Export
         run: pnpm build
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./dist"
+          path: "./out"
 
   deploy:
     environment:
