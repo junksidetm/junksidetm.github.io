@@ -184,3 +184,10 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
   - `src/app/about/page.tsx`: System engineering profile, principles, and hardware specification documentation.
   - `.github/workflows/deploy.yml`: Autonomous cloud-based pnpm CI/CD building static export and deploying directly to GitHub Pages.
 - **Status**: 100% (Completed)
+
+## [2026-10-09 23:58:00 IST] - CI Workflow Optimization for Remote pnpm Resolution
+- **Action**: Removed `cache: "pnpm"` requirement from `actions/setup-node@v4` in `.github/workflows/deploy.yml` and upgraded runner Node runtime to Node 22 to allow autonomous online lockfile resolution.
+- **Files Modified**:
+  - `.github/workflows/deploy.yml`
+  - `Version.md`
+- **Status**: 100% (Completed)
