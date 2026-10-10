@@ -1,82 +1,116 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, QrCode, Download, Copy, Check, ExternalLink, Smartphone } from "lucide-react";
+import { X, Download, Copy, Check, ExternalLink, QrCode } from "lucide-react";
 import { Project } from "../data/projects";
 
+export interface QrModalItem {
+  name: string;
+  url: string;
+  label?: string;
+  sublabel?: string;
+  icon?: string;
+}
+
 interface QrCodeModalProps {
-  project: Project | null;
+  item: QrModalItem | Project | null;
   onClose: () => void;
   isOpen?: boolean;
 }
 
-export const QrCodeModal: React.FC<QrCodeModalProps> = ({ project, onClose }) => {
+export const QrCodeModal: React.FC<QrCodeModalProps> = ({ item, onClose }) => {
   const [copied, setCopied] = useState(false);
 
-  if (!project || !project.apkDownload) return null;
+  if (!item) return null;
 
-  const downloadUrl =
-    project.apkDownload.universal ||
-    project.apkDownload.arm64 ||
-    project.apkDownload.unclone ||
-    project.repoUrl;
+  const isCustomItem = "url" in item && typeof item.url === "string";
+  const name = item.name;
+  
+  let targetUrl = "";
+  let sublabel = "Scan to Open on Device";
+  let promptText = "Point your phone camera to open link";
+  let actionText = "Open Link";
+
+  if (isCustomItem) {
+    targetUrl = item.url;
+    if (item.sublabel) sublabel = item.sublabel;
+    if (item.label) promptText = item.label;
+    if (targetUrl.endsWith(".ttf") || targetUrl.endsWith(".apk")) {
+      actionText = "Direct Download";
+    }
+  } else {
+    const proj = item as Project;
+    targetUrl =
+      proj.apkDownload?.universal ||
+      proj.apkDownload?.arm64 ||
+      proj.apkDownload?.unclone ||
+      proj.liveUrl ||
+      proj.repoUrl;
+    
+    if (proj.apkDownload) {
+      sublabel = `Package: ${proj.apkDownload.version || "Production"}`;
+      promptText = "Point your camera to download APK directly";
+      actionText = "Download APK";
+    } else {
+      sublabel = proj.tagline;
+      promptText = "Point your camera to visit web project";
+      actionText = "Visit Project";
+    }
+  }
 
   const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=10&data=${encodeURIComponent(
-    downloadUrl
+    targetUrl
   )}`;
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(downloadUrl);
+    navigator.clipboard.writeText(targetUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-md p-6 rounded-3xl bg-[#0f121a] border border-purple-500/30 shadow-2xl shadow-purple-500/20 text-white overflow-hidden">
+      <div className="relative w-full max-w-md p-6 rounded-3xl bg-[#0f0b24] border border-purple-500/30 shadow-2xl shadow-purple-900/40 text-white overflow-hidden">
         {/* Glow backdrop */}
         <div className="absolute top-0 right-0 w-48 h-48 bg-purple-600/20 rounded-full blur-2xl -z-10 pointer-events-none" />
 
         {/* Header */}
         <div className="flex items-center justify-between mb-5">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center">
-              <Smartphone size={20} className="text-purple-400" />
+            <div className="w-10 h-10 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center">
+              <QrCode size={20} className="text-purple-400" />
             </div>
             <div>
-              <h3 className="text-lg font-bold tracking-tight text-white">{project.name}</h3>
-              <p className="text-xs text-slate-400 font-mono">Scan to Install on Device</p>
+              <h3 className="text-lg font-bold tracking-tight text-white">{name}</h3>
+              <p className="text-xs text-purple-300/80 font-mono">{sublabel}</p>
             </div>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
+            className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
+            aria-label="Close modal"
           >
             <X size={18} />
           </button>
         </div>
 
         {/* QR Code Container */}
-        <div className="flex flex-col items-center justify-center p-6 rounded-2xl bg-white rounded-xl mb-5 shadow-inner">
+        <div className="flex flex-col items-center justify-center p-6 rounded-2xl bg-white mb-5 shadow-inner">
           <img
             src={qrImageUrl}
-            alt={`QR Code for ${project.name}`}
+            alt={`QR Code for ${name}`}
             className="w-48 h-48 object-contain"
           />
           <p className="mt-3 text-xs text-slate-700 font-mono font-medium text-center">
-            Point your Android camera to download APK directly
+            {promptText}
           </p>
         </div>
 
-        {/* Package info */}
-        <div className="p-3 rounded-xl bg-[#161a26] border border-white/5 mb-5 text-xs font-mono text-slate-300">
-          <div className="flex justify-between mb-1">
-            <span className="text-slate-500">Package:</span>
-            <span className="text-purple-400 font-bold">{project.apkDownload.version || "Production"}</span>
-          </div>
-          <div className="truncate text-slate-400">
-            {downloadUrl}
+        {/* URL Box */}
+        <div className="p-3 rounded-xl bg-purple-950/40 border border-purple-500/20 mb-5 text-xs font-mono text-purple-200">
+          <div className="truncate text-purple-300">
+            {targetUrl}
           </div>
         </div>
 
@@ -84,29 +118,33 @@ export const QrCodeModal: React.FC<QrCodeModalProps> = ({ project, onClose }) =>
         <div className="grid grid-cols-2 gap-3">
           <button
             onClick={handleCopy}
-            className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#1c2233] hover:bg-[#242c42] border border-white/10 text-xs font-semibold transition-all"
+            className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-purple-950/50 hover:bg-purple-900/60 border border-purple-500/30 text-xs font-semibold text-purple-200 hover:text-white transition-all cursor-pointer active:scale-95"
           >
             {copied ? (
               <>
-                <Check size={14} className="text-emerald-400" />
-                <span className="text-emerald-400 font-mono">Copied!</span>
+                <Check size={14} className="text-purple-300" />
+                <span className="text-purple-300 font-mono">Copied!</span>
               </>
             ) : (
               <>
-                <Copy size={14} className="text-slate-400" />
+                <Copy size={14} className="text-purple-400" />
                 <span>Copy Link</span>
               </>
             )}
           </button>
 
           <a
-            href={downloadUrl}
+            href={targetUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-bold transition-all shadow-lg shadow-purple-600/20"
+            className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold transition-all shadow-lg shadow-purple-600/30 active:scale-95"
           >
-            <Download size={14} />
-            <span>Direct Download</span>
+            {targetUrl.endsWith(".ttf") || targetUrl.endsWith(".apk") ? (
+              <Download size={14} />
+            ) : (
+              <ExternalLink size={14} />
+            )}
+            <span>{actionText}</span>
           </a>
         </div>
       </div>

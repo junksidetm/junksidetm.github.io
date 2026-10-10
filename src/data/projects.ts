@@ -3,7 +3,7 @@ export interface Project {
   name: string;
   tagline: string;
   description: string;
-  category: "android" | "web" | "desktop" | "design";
+  category: "android" | "web" | "desktop";
   icon: string;
   featured?: boolean;
   liveUrl?: string;
@@ -16,35 +16,14 @@ export interface Project {
     sha256Snippet?: string;
   };
   techStack: string[];
-  stats: { label: string; value: string };
-  badge?: string;
 }
 
 export const PROJECTS: Project[] = [
   {
-    id: "wallet-compose",
-    name: "Wallet (Native Compose)",
-    tagline: "Pure Android Native Financial Suite",
-    description: "Built strictly with native Android primitives, Jetpack Compose, Room offline-first persistence, StateFlow lifecycle flows, and custom Canvas visualizer rendering at fluid 120 FPS.",
-    category: "android",
-    icon: "/wallet-logo.svg",
-    featured: true,
-    liveUrl: "https://junksidetm.github.io/Wallet/",
-    repoUrl: "https://github.com/junksidetm/Wallet",
-    apkDownload: {
-      universal: "https://github.com/junksidetm/Wallet/releases/latest/download/wallet-universal.apk",
-      version: "Latest Production",
-      sha256Snippet: "SHA-256 release signed via softprops/action-gh-release",
-    },
-    techStack: ["Kotlin", "Jetpack Compose", "Room DB", "StateFlow", "Canvas 120FPS"],
-    stats: { label: "Performance", value: "120 FPS Native" },
-    badge: "Flagship Native",
-  },
-  {
     id: "wallet-flutter",
     name: "Wallet-Flutter",
-    tagline: "Cross-Platform Material 3 Expressive Suite",
-    description: "High-craft Flutter client adhering strictly to Material 3 Expressive guidelines with fluid transitions, localized state management, and split ABI release artifacts.",
+    tagline: "Designed with M3 Expressive for Flutter",
+    description: "A simple wallet app, made with offline first principle. Highly customisable for people who want to track money with style",
     category: "android",
     icon: "/wallet-flutter-logo.svg",
     featured: true,
@@ -56,9 +35,36 @@ export const PROJECTS: Project[] = [
       version: "Latest Multi-ABI",
       sha256Snippet: "Full ABI Split (arm64-v8a, armeabi-v7a, x86_64)",
     },
-    techStack: ["Dart", "Flutter 3.x", "Material 3 Expressive", "BLoC/Provider"],
-    stats: { label: "Design", value: "M3 Expressive" },
-    badge: "M3 Showcase",
+    techStack: ["Dart", "Flutter", "Material 3 Expressive", "Offline-First"],
+  },
+  {
+    id: "google-emoji-3d",
+    name: "Google Emoji 3D",
+    tagline: "High-Resolution 3D Rendered Asset Suite",
+    description: "Optimized collection of Google 3D Fluent animated and high-resolution emoji assets formatted for web and mobile developers with rolling TrueType font compilation.",
+    category: "web",
+    icon: "/emoji3d-512.png",
+    featured: true,
+    liveUrl: "https://github.com/junksidetm/Google-Emoji-3D/releases/latest/download/NotoColorEmoji.ttf",
+    repoUrl: "https://github.com/junksidetm/Google-Emoji-3D",
+    apkDownload: {
+      universal: "https://github.com/junksidetm/Google-Emoji-3D/releases/latest/download/NotoColorEmoji.ttf",
+      version: "Rolling Release TTF",
+      sha256Snippet: "OpenType TrueType sbix strike collection",
+    },
+    techStack: ["3D Rendering", "OpenType TTF", "Unicode 15.1", "Fluent M3"],
+  },
+  {
+    id: "physics-wonderland",
+    name: "Physics Wonderland",
+    tagline: "Interactive 2D/3D Particle & Collision Sandbox",
+    description: "In-browser physics engine featuring gravity simulation, rigid body collisions, cloth simulation, and real-time stress testing.",
+    category: "web",
+    icon: "/icons.svg",
+    featured: true,
+    liveUrl: "https://junksidetm.github.io/physics-wonderland/",
+    repoUrl: "https://github.com/junksidetm/physics-wonderland",
+    techStack: ["WebGL", "JavaScript", "Canvas 2D", "Physics Solver"],
   },
   {
     id: "vector-drawable-nextjs",
@@ -71,8 +77,6 @@ export const PROJECTS: Project[] = [
     liveUrl: "https://junksidetm.github.io/vector-drawable-nextjs/",
     repoUrl: "https://github.com/junksidetm/vector-drawable-nextjs",
     techStack: ["Next.js", "React 18", "CodeMirror", "SVG Engine"],
-    stats: { label: "Conversion", value: "Zero Latency" },
-    badge: "Web Tool",
   },
   {
     id: "wasm-runtime",
@@ -85,8 +89,6 @@ export const PROJECTS: Project[] = [
     liveUrl: "https://junksidetm.github.io/wasm/",
     repoUrl: "https://github.com/junksidetm/wasm",
     techStack: ["WebAssembly", "C / Rust", "Canvas API", "SIMD"],
-    stats: { label: "Speed", value: "Near-Native" },
-    badge: "Engine",
   },
   {
     id: "instafel",
@@ -102,14 +104,12 @@ export const PROJECTS: Project[] = [
       sha256Snippet: "arm64-v8a unclone production package",
     },
     techStack: ["Android Smali", "Reversing", "ARM64", "Security"],
-    stats: { label: "Architecture", value: "Unclone Package" },
-    badge: "Power Utility",
   },
   {
     id: "android-battery-checker",
     name: "Android Battery Unrestricted Checker",
     tagline: "Instant Background & Power Restriction Auditor",
-    description: "Diagnostic Android app verifying battery optimization bypasses, unrestricted background execution permissions, and OEM aggressive task-killer statuses.",
+    description: "Diagnostic Android app verifying battery optimization bypasses and unrestricted background execution permissions. Shizuku/Shevery compatible app.",
     category: "android",
     icon: "/battery-logo.svg",
     liveUrl: "https://junksidetm.github.io/Android-Battery-Unrestricted-Checker/",
@@ -119,9 +119,7 @@ export const PROJECTS: Project[] = [
       version: "Latest Universal",
       sha256Snippet: "Universal APK release verified via GitHub Actions",
     },
-    techStack: ["Kotlin", "Android SDK", "BatteryManager", "JobScheduler"],
-    stats: { label: "Target", value: "Android 8.0 - 15" },
-    badge: "Diagnostic",
+    techStack: ["Kotlin", "Android SDK", "Shizuku", "BatteryManager"],
   },
   {
     id: "winforge",
@@ -133,8 +131,6 @@ export const PROJECTS: Project[] = [
     liveUrl: "https://junksidetm.github.io/WinForge/",
     repoUrl: "https://github.com/junksidetm/WinForge",
     techStack: ["PowerShell 7", "Windows API", "Batch", "Registry Engine"],
-    stats: { label: "Platform", value: "Windows 11 / 10" },
-    badge: "Automation",
   },
   {
     id: "brave-origin",
@@ -146,8 +142,6 @@ export const PROJECTS: Project[] = [
     liveUrl: "https://junksidetm.github.io/Brave-Origin-Unlocker-Windows/",
     repoUrl: "https://github.com/junksidetm/Brave-Origin-Unlocker-Windows",
     techStack: ["Windows Scripting", "Brave Engine", "Privacy Hardening"],
-    stats: { label: "Privacy", value: "Hardened Profile" },
-    badge: "Privacy",
   },
   {
     id: "cresto",
@@ -158,8 +152,6 @@ export const PROJECTS: Project[] = [
     icon: "/icons.svg",
     repoUrl: "https://github.com/junksidetm/Cresto",
     techStack: ["Kotlin", "Jetpack Compose", "TelecomManager", "Room DB"],
-    stats: { label: "Focus", value: "Native Dialer" },
-    badge: "Open Source",
   },
   {
     id: "rivo-phone",
@@ -175,43 +167,15 @@ export const PROJECTS: Project[] = [
       sha256Snippet: "RivoPhone production signed release",
     },
     techStack: ["Kotlin", "SIP / VoIP", "Audio API", "Foreground Service"],
-    stats: { label: "Network", value: "SIP Protocol" },
-    badge: "VoIP App",
-  },
-  {
-    id: "physics-wonderland",
-    name: "Physics Wonderland",
-    tagline: "Interactive 2D/3D Particle & Collision Sandbox",
-    description: "In-browser physics engine featuring gravity simulation, rigid body collisions, cloth simulation, and real-time stress testing.",
-    category: "web",
-    icon: "/icons.svg",
-    repoUrl: "https://github.com/junksidetm/physics-wonderland",
-    techStack: ["WebGL", "JavaScript", "Canvas 2D", "Physics Solver"],
-    stats: { label: "Engine", value: "60 FPS Canvas" },
-    badge: "Interactive",
   },
   {
     id: "gboard-patches",
     name: "Gboard Patches",
     tagline: "Customization & Layout Themes for Gboard",
-    description: "System-level RRO overlay mods, color schemes, and rounded key cap customizations for Google Keyboard on Android.",
+    description: "System-level RRO overlay mods, Morphe patches, color schemes, and rounded key cap customizations for Google Keyboard on Android.",
     category: "android",
     icon: "/gboard-logo.svg",
     repoUrl: "https://github.com/junksidetm/Gboard-patches",
-    techStack: ["Magisk", "RRO Overlays", "Android System", "Theming"],
-    stats: { label: "Type", value: "System Mod" },
-    badge: "Theme Mod",
-  },
-  {
-    id: "google-emoji-3d",
-    name: "Google Emoji 3D",
-    tagline: "High-Resolution 3D Rendered Asset Suite",
-    description: "Optimized collection of Google 3D Fluent animated and high-resolution emoji assets formatted for web and mobile developers.",
-    category: "design",
-    icon: "/emoji3d-logo.svg",
-    repoUrl: "https://github.com/junksidetm/Google-Emoji-3D",
-    techStack: ["3D Rendering", "PNG / WebP", "Design Assets", "Fluent M3"],
-    stats: { label: "Assets", value: "High-Res 3D" },
-    badge: "Design Assets",
+    techStack: ["Magisk", "Morphe", "RRO Overlays", "Theming"],
   },
 ];
