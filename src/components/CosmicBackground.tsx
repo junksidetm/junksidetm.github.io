@@ -24,8 +24,8 @@ export const CosmicBackground: React.FC = () => {
 
     window.addEventListener("resize", handleResize);
 
-    // Particle system configuration
-    const particleCount = Math.min(Math.floor((width * height) / 18000), 75);
+    // Particle constellation configuration
+    const particleCount = Math.min(Math.floor((width * height) / 14000), 85);
     const particles: Array<{
       x: number;
       y: number;
@@ -38,23 +38,23 @@ export const CosmicBackground: React.FC = () => {
     }> = [];
 
     const colors = [
-      "139, 92, 246",  // Electric Purple
+      "147, 51, 234",  // Electric Purple
       "239, 68, 68",   // Crimson Red
       "168, 85, 247",  // Vivid Violet
       "244, 63, 94",   // Ruby Rose
-      "217, 70, 239",  // Neon Fuchsia
+      "192, 132, 252", // Bright Lavender
     ];
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: (Math.random() - 0.5) * 0.45,
-        radius: Math.random() * 2 + 1,
+        vx: (Math.random() - 0.5) * 0.65,
+        vy: (Math.random() - 0.5) * 0.65,
+        radius: Math.random() * 2.5 + 1.2,
         color: colors[Math.floor(Math.random() * colors.length)],
-        alpha: Math.random() * 0.6 + 0.2,
-        pulseSpeed: Math.random() * 0.02 + 0.005,
+        alpha: Math.random() * 0.6 + 0.35,
+        pulseSpeed: Math.random() * 0.025 + 0.008,
       });
     }
 
@@ -80,8 +80,8 @@ export const CosmicBackground: React.FC = () => {
       frame++;
       ctx.clearRect(0, 0, width, height);
 
-      // Render connecting lines
-      const maxDistance = 140;
+      // Connecting energetic lines between close particles
+      const maxDistance = 150;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -96,12 +96,12 @@ export const CosmicBackground: React.FC = () => {
               particles[j].x,
               particles[j].y
             );
-            grad.addColorStop(0, `rgba(${particles[i].color}, ${proximity * 0.2})`);
-            grad.addColorStop(1, `rgba(${particles[j].color}, ${proximity * 0.2})`);
+            grad.addColorStop(0, `rgba(${particles[i].color}, ${proximity * 0.35})`);
+            grad.addColorStop(1, `rgba(${particles[j].color}, ${proximity * 0.35})`);
 
             ctx.beginPath();
             ctx.strokeStyle = grad;
-            ctx.lineWidth = proximity * 1.2;
+            ctx.lineWidth = proximity * 1.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.stroke();
@@ -109,36 +109,35 @@ export const CosmicBackground: React.FC = () => {
         }
       }
 
-      // Update and draw particles
+      // Draw and animate particles
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
 
-        // Motion update
+        // Motion physics
         p.x += p.vx;
         p.y += p.vy;
 
-        // Mouse gentle repulsion/attraction
+        // Interactive mouse gravity
         const mdx = mouseX - p.x;
         const mdy = mouseY - p.y;
         const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
-        if (mdist < 150) {
-          const force = (1 - mdist / 150) * 0.8;
+        if (mdist < 160) {
+          const force = (1 - mdist / 160) * 1.2;
           p.x -= (mdx / mdist) * force;
           p.y -= (mdy / mdist) * force;
         }
 
-        // Boundary wrap
+        // Screen edge wrapping
         if (p.x < 0) p.x = width;
         else if (p.x > width) p.x = 0;
         if (p.y < 0) p.y = height;
         else if (p.y > height) p.y = 0;
 
-        // Pulse alpha
-        const currentAlpha =
-          p.alpha + Math.sin(frame * p.pulseSpeed) * 0.25;
-        const clampedAlpha = Math.max(0.1, Math.min(1, currentAlpha));
+        // Dynamic pulsing alpha
+        const currentAlpha = p.alpha + Math.sin(frame * p.pulseSpeed) * 0.3;
+        const clampedAlpha = Math.max(0.15, Math.min(1, currentAlpha));
 
-        // Draw particle glow
+        // Outer glow halo
         ctx.beginPath();
         const radGrad = ctx.createRadialGradient(
           p.x,
@@ -146,18 +145,18 @@ export const CosmicBackground: React.FC = () => {
           0,
           p.x,
           p.y,
-          p.radius * 3.5
+          p.radius * 4.5
         );
-        radGrad.addColorStop(0, `rgba(${p.color}, ${clampedAlpha})`);
+        radGrad.addColorStop(0, `rgba(${p.color}, ${clampedAlpha * 0.9})`);
         radGrad.addColorStop(1, `rgba(${p.color}, 0)`);
         ctx.fillStyle = radGrad;
-        ctx.arc(p.x, p.y, p.radius * 3.5, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.radius * 4.5, 0, Math.PI * 2);
         ctx.fill();
 
-        // Draw particle core
+        // Intense core dot
         ctx.beginPath();
-        ctx.fillStyle = `rgba(255, 255, 255, ${clampedAlpha * 0.9})`;
-        ctx.arc(p.x, p.y, p.radius * 0.8, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${clampedAlpha})`;
+        ctx.arc(p.x, p.y, p.radius * 0.9, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -176,44 +175,45 @@ export const CosmicBackground: React.FC = () => {
 
   return (
     <div className="fixed inset-0 pointer-events-none -z-20 overflow-hidden">
-      {/* Deep Obsidian Background */}
+      {/* Deep Obsidian Midnight Canvas */}
       <div className="absolute inset-0 bg-[#06070a]" />
 
-      {/* Atmospheric Flare Spotlights */}
+      {/* Vibrant Breathing Flare Spotlights (Purple & Crimson Red) */}
       <div
-        className="absolute -top-32 -left-32 w-[34rem] h-[34rem] rounded-full blur-[130px] opacity-45 pointer-events-none animate-pulse"
+        className="absolute -top-36 -left-36 w-[42rem] h-[42rem] rounded-full blur-[140px] opacity-60 pointer-events-none animate-pulse"
         style={{
-          background: "radial-gradient(circle, #7c3aed 0%, #4c1d95 60%, transparent 100%)",
-          animationDuration: "8s",
+          background: "radial-gradient(circle, #8b5cf6 0%, #6d28d9 45%, #3b0764 75%, transparent 100%)",
+          animationDuration: "7s",
         }}
       />
       <div
-        className="absolute top-1/4 -right-28 w-[38rem] h-[38rem] rounded-full blur-[150px] opacity-35 pointer-events-none animate-pulse"
+        className="absolute top-1/4 -right-32 w-[44rem] h-[44rem] rounded-full blur-[150px] opacity-50 pointer-events-none animate-pulse"
         style={{
-          background: "radial-gradient(circle, #dc2626 0%, #881337 60%, transparent 100%)",
-          animationDuration: "10s",
+          background: "radial-gradient(circle, #ef4444 0%, #b91c1c 45%, #7f1d1d 75%, transparent 100%)",
+          animationDuration: "9s",
         }}
       />
       <div
-        className="absolute -bottom-40 left-1/3 w-[40rem] h-[40rem] rounded-full blur-[160px] opacity-30 pointer-events-none"
+        className="absolute -bottom-48 left-1/4 w-[48rem] h-[48rem] rounded-full blur-[160px] opacity-45 pointer-events-none animate-pulse"
         style={{
-          background: "radial-gradient(circle, #9333ea 0%, #3b0764 70%, transparent 100%)",
+          background: "radial-gradient(circle, #a855f7 0%, #4c1d95 50%, #1e1b4b 80%, transparent 100%)",
+          animationDuration: "11s",
         }}
       />
 
-      {/* Cybernetic Grid Matrix Lines */}
+      {/* Subtle Cybernetic Grid Pattern */}
       <div
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(255,255,255,0.15) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255,255,255,0.15) 1px, transparent 1px)
+            linear-gradient(to right, rgba(255,255,255,0.18) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255,255,255,0.18) 1px, transparent 1px)
           `,
-          backgroundSize: "48px 48px",
+          backgroundSize: "40px 40px",
         }}
       />
 
-      {/* Live Particle & Constellation Canvas */}
+      {/* Live Constellation Particle Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
     </div>
   );

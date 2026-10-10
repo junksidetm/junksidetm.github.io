@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useEffect, useRef } from "react";
+import React, { useState, useMemo } from "react";
 import { CosmicBackground } from "../components/CosmicBackground";
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
@@ -20,12 +20,10 @@ import {
   Zap, 
   Smartphone,
   Globe,
-  Search,
-  Filter
+  Search
 } from "lucide-react";
 
 export default function HomePage() {
-  const [isDeepDived, setIsDeepDived] = useState<boolean>(false);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [qrProject, setQrProject] = useState<Project | null>(null);
@@ -33,25 +31,11 @@ export default function HomePage() {
   const [activeWalletTab, setActiveWalletTab] = useState<"compose" | "flutter">("compose");
   const [copiedClone, setCopiedClone] = useState<boolean>(false);
 
-  const showcaseRef = useRef<HTMLElement | null>(null);
-
-  // Auto-reveal if user scrolls down past the hero viewport
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 80) {
-        setIsDeepDived(true);
-      }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const handleDeepDive = () => {
-    setIsDeepDived(true);
-    // Smooth scroll down to showcase section
-    setTimeout(() => {
-      showcaseRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 50);
+    const el = document.getElementById("showcase-section");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   // Categories list
@@ -93,28 +77,23 @@ export default function HomePage() {
 
   return (
     <div id="top" className="min-h-screen flex flex-col relative selection:bg-purple-600 selection:text-white">
-      {/* Cool Cosmic & Flare Animated Background */}
+      {/* Dynamic Cosmic Flare Animated Background */}
       <CosmicBackground />
 
-      {/* Main Full-Viewport Hero Landing Area */}
+      {/* Main Full-Viewport Hero Landing View (Occupies full 100vh) */}
       <Hero
         onDeepDive={handleDeepDive}
         totalProjects={PROJECTS.length}
       />
 
       {/* =========================================================================
-          SHOWCASE SECTION: Revealed smoothly on "Let's Deep Dive" or scroll down
+          SHOWCASE SECTION: Naturally below the fold; smooth scrollable transition
       ========================================================================= */}
       <section
         id="showcase-section"
-        ref={showcaseRef}
-        className={`w-full transition-all duration-700 ease-out ${
-          isDeepDived 
-            ? "opacity-100 translate-y-0 pointer-events-auto" 
-            : "opacity-0 translate-y-24 pointer-events-none hidden"
-        }`}
+        className="w-full relative z-10 pt-4"
       >
-        {/* Sticky Navbar for Showcase Experience */}
+        {/* Sticky Showcase Navbar */}
         <Navbar onOpenSearch={() => setIsCommandPaletteOpen(true)} />
 
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full pt-10 flex-grow">
@@ -129,10 +108,10 @@ export default function HomePage() {
                   <button
                     key={cat.id}
                     onClick={() => setSelectedCategory(cat.id)}
-                    className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
+                    className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all cursor-pointer ${
                       isSelected
                         ? "bg-gradient-to-r from-purple-600 to-rose-600 text-white shadow-lg shadow-purple-900/40 border border-purple-400/40 font-semibold"
-                        : "bg-[#121422]/70 hover:bg-[#1a1c30] text-slate-300 hover:text-white border border-white/5"
+                        : "bg-[#121422]/80 hover:bg-[#1a1c30] text-slate-300 hover:text-white border border-white/5"
                     }`}
                   >
                     <IconComponent size={14} className={isSelected ? "text-white" : "text-purple-400"} />
@@ -150,7 +129,7 @@ export default function HomePage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search tools, APKs, tags..."
-                className="w-full pl-9 pr-4 py-2 rounded-xl bg-[#121422]/80 border border-white/10 focus:border-purple-500/50 focus:outline-none text-xs sm:text-sm text-white placeholder-slate-400 backdrop-blur-md transition-all font-mono"
+                className="w-full pl-9 pr-4 py-2 rounded-xl bg-[#121422]/90 border border-white/10 focus:border-purple-500/50 focus:outline-none text-xs sm:text-sm text-white placeholder-slate-400 backdrop-blur-md transition-all font-mono"
               />
               {searchQuery && (
                 <button
@@ -198,7 +177,7 @@ export default function HomePage() {
                     <div className="inline-flex p-1 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-md mb-6">
                       <button
                         onClick={() => setActiveWalletTab("compose")}
-                        className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                        className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                           activeWalletTab === "compose"
                             ? "bg-purple-600 text-white shadow-lg shadow-purple-600/40"
                             : "text-slate-300 hover:text-white"
@@ -209,7 +188,7 @@ export default function HomePage() {
                       </button>
                       <button
                         onClick={() => setActiveWalletTab("flutter")}
-                        className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                        className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                           activeWalletTab === "flutter"
                             ? "bg-rose-600 text-white shadow-lg shadow-rose-600/40"
                             : "text-slate-300 hover:text-white"
@@ -273,7 +252,7 @@ export default function HomePage() {
                         </div>
                         <button
                           onClick={() => setQrProject(currentWallet)}
-                          className="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] font-mono text-slate-300 transition-colors"
+                          className="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] font-mono text-slate-300 transition-colors cursor-pointer"
                         >
                           QR APK
                         </button>
@@ -285,7 +264,7 @@ export default function HomePage() {
                           <span>FAST CLONE</span>
                           <button
                             onClick={() => handleCopyClone(`git clone ${currentWallet.repoUrl}.git`)}
-                            className="flex items-center gap-1 text-purple-400 hover:text-purple-300 transition-colors"
+                            className="flex items-center gap-1 text-purple-400 hover:text-purple-300 transition-colors cursor-pointer"
                           >
                             {copiedClone ? <Check size={12} /> : <Copy size={12} />}
                             <span>{copiedClone ? "Copied" : "Copy"}</span>
@@ -338,7 +317,7 @@ export default function HomePage() {
                 <p>No repositories found matching &quot;{searchQuery}&quot;</p>
                 <button
                   onClick={() => { setSelectedCategory("all"); setSearchQuery(""); }}
-                  className="mt-4 px-4 py-2 rounded-xl bg-purple-600 text-white text-xs font-semibold"
+                  className="mt-4 px-4 py-2 rounded-xl bg-purple-600 text-white text-xs font-semibold cursor-pointer"
                 >
                   Reset Filters
                 </button>

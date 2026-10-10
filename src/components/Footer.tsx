@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
             {/* Full Brand Banner at the side */}
             <a href="#top" className="group block" aria-label="Codeium by Darkside Studio">
               <img
-                src="/Codeium/Codeium Banner/SVG/Codeium - Banner Transparent White.svg"
+                src="/codeium-banner.svg"
                 alt="Codeium Banner"
                 className="h-10 sm:h-12 w-auto object-contain drop-shadow-[0_2px_12px_rgba(139,92,246,0.3)] transition-transform group-hover:scale-[1.02]"
               />
@@ -146,7 +146,7 @@ export const Footer: React.FC = () => {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
           <div className="flex items-center gap-2.5">
             <img
-              src="/Codeium/Codeium Logo/SVG/Codium - Logo Black.svg"
+              src="/codeium-logo.svg"
               alt="Codeium Icon"
               className="w-4 h-4 object-contain invert opacity-80"
             />

@@ -232,3 +232,17 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
   - `src/app/page.tsx`
   - `Version.md`
 - **Status**: 100% (Completed & Synced)
+
+## [2026-10-10 15:45:00 IST] - Viewport Scroll Flow Restoration & Static Asset Alias Routing
+- **Action**: Restored natural viewport scroll flow by removing conditional `hidden` (`display:none`) that froze document scrolling. The Hero retains full 100vh height concealing the projects below the fold until the user scrolls or clicks "Let's Deep Dive" for a fluid smooth-scroll transition. Created clean, URL-safe asset aliases in `public/` (`codeium-banner.svg`, `codeium-logo.svg`, `codeium-logo-white.svg`) preventing HTTP 400 space-encoding fetch failures. Amplified CosmicBackground flare and particle luminescence.
+- **Components Modified**:
+  - `src/app/page.tsx`
+  - `src/components/Hero.tsx`
+  - `src/components/Navbar.tsx`
+  - `src/components/Footer.tsx`
+  - `src/components/CosmicBackground.tsx`
+  - `src/app/layout.tsx`
+  - `public/codeium-banner.svg`
+  - `public/codeium-logo.svg`
+  - `Version.md`
+- **Status**: 100% (Completed & Synced)

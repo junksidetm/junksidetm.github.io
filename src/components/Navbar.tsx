@@ -16,7 +16,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 via-rose-600 to-red-600 p-[1px] shadow-lg shadow-purple-500/20 group-hover:scale-105 transition-transform">
             <div className="w-full h-full bg-[#0d0f17] rounded-[11px] flex items-center justify-center p-1.5 overflow-hidden">
               <img 
-                src="/Codeium/Codeium Logo/SVG/Codium - Logo Black.svg" 
+                src="/codeium-logo.svg" 
                 alt="Codeium Logo" 
                 className="w-full h-full object-contain invert" 
               />

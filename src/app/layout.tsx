@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Abhijeet Yadav", url: "https://github.com/junksidetm" }],
   icons: {
-    icon: "/Codeium/Codeium Logo/SVG/Codium - Logo Black.svg",
-    apple: "/Codeium/Codeium Logo/PNG/Codium - Logo Black.png",
+    icon: "/codeium-logo.svg",
+    apple: "/codeium-logo.svg",
   },
   openGraph: {
     title: "Codeium • Darkside Studio | High-Performance Systems & Native Android Suite",
