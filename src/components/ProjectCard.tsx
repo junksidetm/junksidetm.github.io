@@ -17,6 +17,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenQr }) =
     project.apkDownload?.unclone;
 
   const isBraveOrigin = project.id === "brave-origin";
+  const isRivo = project.id === "rivo-phone";
+  const isInstafel = project.id === "instafel";
 
   return (
     <div
@@ -32,11 +34,25 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenQr }) =
       <div>
         <div className="flex items-start justify-between gap-3 mb-4">
           {/* Logo container: perfectly centered and fitted */}
-          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#140f2b] p-2 border border-purple-500/25 flex items-center justify-center overflow-hidden shrink-0 group-hover:scale-105 group-hover:border-purple-400/40 transition-all shadow-inner">
+          <div
+            className={`rounded-2xl bg-[#140f2b] border border-purple-500/25 flex items-center justify-center overflow-hidden shrink-0 group-hover:scale-105 group-hover:border-purple-400/40 transition-all shadow-inner ${
+              isRivo
+                ? "w-16 h-16 sm:w-20 sm:h-20 p-1"
+                : isInstafel
+                ? "w-12 h-12 sm:w-14 sm:h-14 p-1"
+                : "w-12 h-12 sm:w-14 sm:h-14 p-2"
+            }`}
+          >
             <img
               src={project.icon}
               alt={project.name}
-              className="w-full h-full object-contain"
+              className={`w-full h-full object-contain transition-transform ${
+                isRivo
+                  ? "scale-[1.85]"
+                  : isInstafel
+                  ? "scale-125"
+                  : ""
+              }`}
               onError={(e) => {
                 (e.target as HTMLImageElement).src = "/icons.svg";
               }}

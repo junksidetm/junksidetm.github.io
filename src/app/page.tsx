@@ -256,7 +256,7 @@ export default function HomePage() {
                               />
                             ) : (
                               <img
-                                src="/instagram-logo.svg"
+                                src="/atom-symbol-svgrepo-com.svg"
                                 alt="Physics Wonderland"
                                 className="w-full h-full object-contain"
                               />
