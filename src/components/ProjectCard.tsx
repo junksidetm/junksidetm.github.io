@@ -19,6 +19,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenQr }) =
   const isBraveOrigin = project.id === "brave-origin";
   const isRivo = project.id === "rivo-phone";
   const isInstafel = project.id === "instafel";
+  const [activeOs, setActiveOs] = React.useState<"windows" | "macos">("windows");
 
   return (
     <div
@@ -86,105 +87,111 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenQr }) =
         </p>
 
         {/* =========================================================================
-            EXPANDED DUAL-PANEL SECTION FOR BRAVE ORIGIN PROFILE (WINDOWS & MACOS)
-            Takes full advantage of the 2-column span left by Cresto
+            MASTERPIECE-STYLE TABBED SELECTOR FOR BRAVE ORIGIN PROFILE (WINDOWS & MACOS)
         ========================================================================= */}
         {isBraveOrigin && (
-          <div className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
-            {/* Windows Panel */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-purple-950/35 border border-purple-500/25 flex flex-col justify-between hover:border-purple-400/40 transition-colors">
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-bold text-white text-sm sm:text-base flex items-center gap-2">
-                    <Monitor size={16} className="text-purple-400" />
-                    <span>Windows Edition</span>
-                  </span>
-                  <span className="text-[10px] text-purple-300 bg-purple-900/50 px-2 py-0.5 rounded-md border border-purple-500/25">
-                    PowerShell 7
-                  </span>
-                </div>
-                <p className="text-xs text-slate-300 font-sans mb-3 leading-relaxed">
-                  Engineered for Windows 10 &amp; 11 workstations. Bundles automated registry anti-telemetry policies and custom uBlock Origin filter sets.
-                </p>
-                <div className="space-y-1 text-[11px] text-purple-300/80 mb-4">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1 h-1 rounded-full bg-purple-400" />
-                    <span>Automated PowerShell debloat pipeline</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1 h-1 rounded-full bg-purple-400" />
-                    <span>Privacy-hardened Windows registry rules</span>
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 pt-2 border-t border-purple-500/15">
-                <a
-                  href="https://github.com/junksidetm/Brave-Origin-Profile-Windows"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 py-2 px-3 text-center rounded-xl bg-purple-900/40 hover:bg-purple-800/60 text-xs text-purple-200 font-semibold border border-purple-500/25 transition-all flex items-center justify-center gap-1.5"
-                >
-                  <Github size={13} />
-                  <span>Windows Repo</span>
-                </a>
-                <a
-                  href="https://junksidetm.github.io/Brave-Origin-Profile-Windows/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 py-2 px-3 text-center rounded-xl bg-purple-600/30 hover:bg-purple-600/50 text-xs text-white font-bold border border-purple-500/35 transition-all flex items-center justify-center gap-1.5"
-                >
-                  <span>Explore Live</span>
-                  <ExternalLink size={13} />
-                </a>
-              </div>
+          <div className="mb-6 font-mono text-xs">
+            {/* Masterpiece-style Tab Switcher */}
+            <div className="inline-flex p-1 rounded-2xl bg-black/50 border border-purple-500/20 backdrop-blur-md mb-4 shadow-inner">
+              <button
+                type="button"
+                onClick={() => setActiveOs("windows")}
+                className={`flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                  activeOs === "windows"
+                    ? "bg-purple-600 text-white shadow-lg shadow-purple-600/40"
+                    : "text-slate-300 hover:text-white"
+                }`}
+              >
+                <Monitor size={14} />
+                <span>Windows Edition</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveOs("macos")}
+                className={`flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                  activeOs === "macos"
+                    ? "bg-purple-600 text-white shadow-lg shadow-purple-600/40"
+                    : "text-slate-300 hover:text-white"
+                }`}
+              >
+                <Laptop size={14} />
+                <span>macOS Edition</span>
+              </button>
             </div>
 
-            {/* macOS Panel */}
+            {/* Selected OS Details Container */}
             <div className="p-4 sm:p-5 rounded-2xl bg-purple-950/35 border border-purple-500/25 flex flex-col justify-between hover:border-purple-400/40 transition-colors">
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-bold text-white text-sm sm:text-base flex items-center gap-2">
-                    <Laptop size={16} className="text-purple-400" />
-                    <span>macOS Edition</span>
-                  </span>
-                  <span className="text-[10px] text-purple-300 bg-purple-900/50 px-2 py-0.5 rounded-md border border-purple-500/25">
-                    zsh / plist
-                  </span>
-                </div>
-                <p className="text-xs text-slate-300 font-sans mb-3 leading-relaxed">
-                  Tailored for macOS Sonoma &amp; Sequoia. Deploys managed plist profile defaults and zero-telemetry rules with native Apple Silicon &amp; Intel support.
-                </p>
-                <div className="space-y-1 text-[11px] text-purple-300/80 mb-4">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1 h-1 rounded-full bg-purple-400" />
-                    <span>1-line terminal deployment via zsh script</span>
+              {activeOs === "windows" ? (
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-bold text-white text-sm sm:text-base flex items-center gap-2">
+                      <Monitor size={16} className="text-purple-400" />
+                      <span>Windows 10 &amp; 11 Edition</span>
+                    </span>
+                    <span className="text-[10px] text-purple-300 bg-purple-900/50 px-2.5 py-1 rounded-md border border-purple-500/25 font-mono">
+                      PowerShell 7
+                    </span>
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1 h-1 rounded-full bg-purple-400" />
-                    <span>Managed plist security &amp; privacy preferences</span>
+                  <p className="text-xs sm:text-sm text-slate-300 font-sans mb-4 leading-relaxed">
+                    Engineered for Windows workstations. Bundles automated registry anti-telemetry policies, zero bloat, and custom uBlock Origin filter sets.
+                  </p>
+                  <div className="flex flex-col sm:flex-row items-center gap-2.5 pt-3 border-t border-purple-500/15">
+                    <a
+                      href="https://github.com/junksidetm/Brave-Origin-Profile-Windows"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:flex-1 py-2.5 px-3 text-center rounded-xl bg-purple-900/40 hover:bg-purple-800/60 text-xs text-purple-200 font-semibold border border-purple-500/25 transition-all flex items-center justify-center gap-2"
+                    >
+                      <Github size={14} />
+                      <span>Windows Repository</span>
+                    </a>
+                    <a
+                      href="https://junksidetm.github.io/Brave-Origin-Profile-Windows/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:flex-1 py-2.5 px-3 text-center rounded-xl bg-purple-600 hover:bg-purple-500 text-xs text-white font-bold border border-purple-500/35 shadow-lg shadow-purple-600/30 transition-all flex items-center justify-center gap-2"
+                    >
+                      <span>Explore Live</span>
+                      <ExternalLink size={14} />
+                    </a>
                   </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-2 pt-2 border-t border-purple-500/15">
-                <a
-                  href="https://github.com/junksidetm/Brave-Origin-Profile-MacOS"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 py-2 px-3 text-center rounded-xl bg-purple-900/40 hover:bg-purple-800/60 text-xs text-purple-200 font-semibold border border-purple-500/25 transition-all flex items-center justify-center gap-1.5"
-                >
-                  <Github size={13} />
-                  <span>macOS Repo</span>
-                </a>
-                <a
-                  href="https://junksidetm.github.io/Brave-Origin-Profile-MacOS/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 py-2 px-3 text-center rounded-xl bg-purple-600/30 hover:bg-purple-600/50 text-xs text-white font-bold border border-purple-500/35 transition-all flex items-center justify-center gap-1.5"
-                >
-                  <span>Explore Live</span>
-                  <ExternalLink size={13} />
-                </a>
-              </div>
+              ) : (
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-bold text-white text-sm sm:text-base flex items-center gap-2">
+                      <Laptop size={16} className="text-purple-400" />
+                      <span>macOS Sonoma &amp; Sequoia Edition</span>
+                    </span>
+                    <span className="text-[10px] text-purple-300 bg-purple-900/50 px-2.5 py-1 rounded-md border border-purple-500/25 font-mono">
+                      zsh / plist
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-300 font-sans mb-4 leading-relaxed">
+                    Tailored for macOS workstations. Deploys managed plist profile defaults and zero-telemetry rules with native Apple Silicon &amp; Intel support.
+                  </p>
+                  <div className="flex flex-col sm:flex-row items-center gap-2.5 pt-3 border-t border-purple-500/15">
+                    <a
+                      href="https://github.com/junksidetm/Brave-Origin-Profile-MacOS"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:flex-1 py-2.5 px-3 text-center rounded-xl bg-purple-900/40 hover:bg-purple-800/60 text-xs text-purple-200 font-semibold border border-purple-500/25 transition-all flex items-center justify-center gap-2"
+                    >
+                      <Github size={14} />
+                      <span>macOS Repository</span>
+                    </a>
+                    <a
+                      href="https://junksidetm.github.io/Brave-Origin-Profile-MacOS/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:flex-1 py-2.5 px-3 text-center rounded-xl bg-purple-600 hover:bg-purple-500 text-xs text-white font-bold border border-purple-500/35 shadow-lg shadow-purple-600/30 transition-all flex items-center justify-center gap-2"
+                    >
+                      <span>Explore Live</span>
+                      <ExternalLink size={14} />
+                    </a>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         )}

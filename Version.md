@@ -374,3 +374,21 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
   - `src/data/projects.ts`
   - `Version.md`
 - **Status**: 100% (Completed & Synced)
+
+## [2026-10-10 20:27:30 IST] - Mobile Typography & GPU Animation Optimization, Masterpiece-Style Brave OS Selector, Directory Reordering
+- **Action**: Addressed mobile viewport rendering deficiencies, streamlined directory UI, and unified interactive components:
+  - **Cross-Platform Mobile Typography**: Imported `Plus_Jakarta_Sans` and `JetBrains_Mono` via Next.js `next/font/google`, eliminating OEM Android fallback degradation and providing uniform, razor-sharp font rendering across phones, tablets, and desktop.
+  - **Mobile 60-120 FPS GPU Acceleration**: Enhanced `CosmicBackground.tsx` with device-pixel-ratio (DPR) retina canvas scaling and decoupled 3D GPU transforms (`translate3d(0, 0, 0)`, `gpu-layer`), ensuring mobile browsers render crisp particle constellations and fluid geometric square animations without throttling.
+  - **Brave Origin Tabbed Selector**: Replaced dual static column panels with an interactive Masterpiece-style OS tab toggle (`[ Windows Edition ] [ macOS Edition ]`) and purged the verbose feature bullet lists for a concise, clean presentation.
+  - **Directory Reordering**: Repositioned `Rivo Phone App` directly adjacent to `WinForge`, followed by `Brave Origin Profile`, and positioned `Gboard Patches` immediately after `Brave Origin`.
+  - **Filter Bar Decluttering**: Removed the redundant secondary quick search bar (`Search tools, APKs, tags...`), keeping clean category tabs in the directory and delegating search to the sticky header command palette.
+- **Files Modified**:
+  - `src/app/layout.tsx`
+  - `src/app/globals.css`
+  - `tailwind.config.ts`
+  - `src/components/CosmicBackground.tsx`
+  - `src/components/ProjectCard.tsx`
+  - `src/app/page.tsx`
+  - `src/data/projects.ts`
+  - `Version.md`
+- **Status**: 100% (Completed & Synced)

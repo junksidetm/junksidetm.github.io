@@ -28,16 +28,29 @@ export const CosmicBackground: React.FC = () => {
     if (!ctx) return;
 
     let animationFrameId: number;
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    let dpr = typeof window !== "undefined" ? Math.min(window.devicePixelRatio || 1, 2) : 1;
+    let width = typeof window !== "undefined" ? window.innerWidth : 1200;
+    let height = typeof window !== "undefined" ? window.innerHeight : 800;
 
-    const handleResize = () => {
+    const setupCanvas = () => {
       if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
-    window.addEventListener("resize", handleResize);
+    setupCanvas();
+
+    const handleResize = () => {
+      setupCanvas();
+    };
+
+    window.addEventListener("resize", handleResize, { passive: true });
 
     // Particle constellation configuration: responsive count
     const particleCount = Math.min(Math.floor((width * height) / 16000), 70);
@@ -252,20 +265,28 @@ export const CosmicBackground: React.FC = () => {
           <rect width="100%" height="100%" fill="url(#ps-purple-squares-grid)" />
         </svg>
 
-        {/* Floating Animated Geometric Purple Squares (Cool animations) */}
-        <div className="absolute top-1/3 left-10 w-24 h-24 border border-purple-500/30 rounded-2xl rotate-12 animate-float pointer-events-none" />
+        {/* Floating Animated Geometric Purple Squares (GPU-accelerated decoupled transforms) */}
+        <div className="absolute top-1/3 left-10 pointer-events-none animate-float gpu-layer">
+          <div className="w-24 h-24 border border-purple-500/30 rounded-2xl rotate-12 shadow-lg shadow-purple-950/40" />
+        </div>
         <div 
-          className="absolute top-1/2 right-12 w-32 h-32 border border-purple-400/30 rounded-3xl -rotate-12 pointer-events-none animate-float"
+          className="absolute top-1/2 right-12 pointer-events-none animate-float gpu-layer"
           style={{ animationDelay: "2s", animationDuration: "8s" }}
-        />
+        >
+          <div className="w-32 h-32 border border-purple-400/30 rounded-3xl -rotate-12 shadow-lg shadow-purple-950/40" />
+        </div>
         <div 
-          className="absolute bottom-1/4 left-1/4 w-20 h-20 border border-purple-400/30 rounded-xl rotate-45 pointer-events-none animate-float"
+          className="absolute bottom-1/4 left-1/4 pointer-events-none animate-float gpu-layer"
           style={{ animationDelay: "4s", animationDuration: "7s" }}
-        />
+        >
+          <div className="w-20 h-20 border border-purple-400/30 rounded-xl rotate-45 shadow-lg shadow-purple-950/40" />
+        </div>
         <div 
-          className="absolute bottom-1/3 right-1/4 w-28 h-28 border border-purple-500/30 rounded-2xl rotate-6 pointer-events-none animate-float"
+          className="absolute bottom-1/3 right-1/4 pointer-events-none animate-float gpu-layer"
           style={{ animationDelay: "1s", animationDuration: "9s" }}
-        />
+        >
+          <div className="w-28 h-28 border border-purple-500/30 rounded-2xl rotate-6 shadow-lg shadow-purple-950/40" />
+        </div>
       </div>
 
       {/* Live Particle Constellation Canvas */}

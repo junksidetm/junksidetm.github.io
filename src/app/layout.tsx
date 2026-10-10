@@ -1,5 +1,20 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const sansFont = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const monoFont = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Codeium",
@@ -45,8 +60,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className="bg-[#06070a] text-slate-100 min-h-screen selection:bg-purple-600 selection:text-white antialiased overflow-x-hidden">
+    <html lang="en" className={`dark scroll-smooth ${sansFont.variable} ${monoFont.variable}`}>
+      <body className="font-sans bg-[#06070a] text-slate-100 min-h-screen selection:bg-purple-600 selection:text-white antialiased overflow-x-hidden">
         {children}
       </body>
     </html>

@@ -19,13 +19,11 @@ import {
   Layers, 
   Smartphone,
   Globe,
-  Search,
   Orbit
 } from "lucide-react";
 
 export default function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const [searchQuery, setSearchQuery] = useState<string>("");
   const [qrItem, setQrItem] = useState<QrModalItem | Project | null>(null);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
   const [activeMasterpiece, setActiveMasterpiece] = useState<"emoji3d" | "physics">("emoji3d");
@@ -49,20 +47,9 @@ export default function HomePage() {
   // Filter projects
   const filteredProjects = useMemo(() => {
     return PROJECTS.filter((project) => {
-      const matchesCategory =
-        selectedCategory === "all" || project.category === selectedCategory;
-
-      const q = searchQuery.toLowerCase().trim();
-      const matchesSearch =
-        q === "" ||
-        project.name.toLowerCase().includes(q) ||
-        project.tagline.toLowerCase().includes(q) ||
-        project.description.toLowerCase().includes(q) ||
-        project.techStack.some((t) => t.toLowerCase().includes(q));
-
-      return matchesCategory && matchesSearch;
+      return selectedCategory === "all" || project.category === selectedCategory;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [selectedCategory]);
 
   const handleCopyClone = (cmd: string) => {
     navigator.clipboard.writeText(cmd);
@@ -89,9 +76,8 @@ export default function HomePage() {
         <Navbar onOpenSearch={() => setIsCommandPaletteOpen(true)} />
 
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full pt-8 sm:pt-10 flex-grow">
-          {/* Header Controls: Search & Category Pills */}
-          <div className="mb-8 sm:mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            {/* Category Pills (Pure Purple hues) */}
+          {/* Category Filter Pills (Pure Purple hues) */}
+          <div className="mb-8 sm:mb-10 flex items-center justify-between gap-4 pb-4 border-b border-purple-500/15">
             <div className="flex flex-wrap items-center gap-2">
               {categories.map((cat) => {
                 const IconComponent = cat.icon;
@@ -112,32 +98,12 @@ export default function HomePage() {
                 );
               })}
             </div>
-
-            {/* Quick Filter Search Box */}
-            <div className="relative w-full md:w-72">
-              <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-purple-400" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search tools, APKs, tags..."
-                className="w-full pl-9 pr-4 py-2 rounded-xl bg-[#120e24]/90 border border-purple-500/20 focus:border-purple-400/60 focus:outline-none text-xs sm:text-sm text-white placeholder-slate-400 backdrop-blur-md transition-all font-mono"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-purple-400 hover:text-white font-mono cursor-pointer"
-                >
-                  Clear
-                </button>
-              )}
-            </div>
           </div>
 
           {/* =====================================================================
               MASTERPIECES SHOWCASE: "Some of our Master Pieces"
           ===================================================================== */}
-          {selectedCategory === "all" && searchQuery === "" && (
+          {selectedCategory === "all" && (
             <section className="mb-14">
               <div className="relative rounded-3xl bg-gradient-to-br from-[#120e26] via-[#0d091e] to-[#150f2e] border border-purple-500/30 p-6 sm:p-8 lg:p-10 overflow-hidden shadow-2xl">
                 {/* Purple ambient flare orbs */}
@@ -378,9 +344,9 @@ export default function HomePage() {
 
             {filteredProjects.length === 0 ? (
               <div className="p-12 text-center rounded-3xl bg-purple-950/20 border border-purple-500/20 font-mono text-slate-400">
-                <p>No repositories found matching &quot;{searchQuery}&quot;</p>
+                <p>No repositories found in this category.</p>
                 <button
-                  onClick={() => { setSelectedCategory("all"); setSearchQuery(""); }}
+                  onClick={() => setSelectedCategory("all")}
                   className="mt-4 px-4 py-2 rounded-xl bg-purple-600 text-white text-xs font-semibold cursor-pointer"
                 >
                   Reset Filters
