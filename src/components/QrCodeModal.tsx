@@ -7,6 +7,7 @@ import { Project } from "../data/projects";
 interface QrCodeModalProps {
   project: Project | null;
   onClose: () => void;
+  isOpen?: boolean;
 }
 
 export const QrCodeModal: React.FC<QrCodeModalProps> = ({ project, onClose }) => {

@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { 
   Github, 
   ChevronDown, 
@@ -9,8 +8,6 @@ import {
   ShieldCheck, 
   Sparkles, 
   ExternalLink,
-  Code2,
-  Terminal,
   Smartphone
 } from "lucide-react";
 

@@ -17,9 +17,7 @@ import {
   Copy, 
   Check, 
   Layers, 
-  ArrowRight, 
   Zap, 
-  ShieldCheck, 
   Smartphone,
   Globe,
   Search,
@@ -376,12 +374,6 @@ export default function HomePage() {
       <CommandPalette
         isOpen={isCommandPaletteOpen}
         onClose={() => setIsCommandPaletteOpen(false)}
-        projects={PROJECTS}
-        onSelectProject={(p) => {
-          setSelectedCategory("all");
-          setSearchQuery(p.name);
-          setIsCommandPaletteOpen(false);
-        }}
       />
     </div>
   );

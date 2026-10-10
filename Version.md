@@ -223,3 +223,12 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
   - `README.md`: Updated ecosystem hub documentation.
   - `Version.md`: Appended tracking entry.
 - **Status**: 100% (Completed & Synced)
+
+## [2026-10-10 15:35:00 IST] - Pages Workflow Engine Switch & TypeScript Contract Harmonization
+- **Action**: Converted GitHub Pages deployment engine from legacy branch/Jekyll mode (`build_type=workflow`) to GitHub Actions Next.js static deployment, resolving automatic fallback conversion of `README.md` to homepage. Harmonized TypeScript prop types on `QrCodeModal` (`isOpen?: boolean`), streamlined `CommandPalette` invocation in `page.tsx`, and cleaned unused icon dependencies across hero components.
+- **Components Modified**:
+  - `src/components/QrCodeModal.tsx`
+  - `src/components/Hero.tsx`
+  - `src/app/page.tsx`
+  - `Version.md`
+- **Status**: 100% (Completed & Synced)
