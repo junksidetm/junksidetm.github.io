@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Github, ChevronDown, Sparkles, ExternalLink } from "lucide-react";
+import { Github, ChevronDown, ExternalLink } from "lucide-react";
 
 interface HeroProps {
   onDeepDive: () => void;
@@ -11,10 +11,21 @@ export const Hero: React.FC<HeroProps> = ({ onDeepDive }) => {
   return (
     <section className="relative w-full min-h-[100dvh] h-[100dvh] flex flex-col justify-between px-4 sm:px-8 lg:px-14 py-4 sm:py-6 md:py-8 z-10 select-none overflow-hidden">
       {/* =========================================================================
-          TOP HEADER: (GitHub logo) GitHub at Top-Left & Brand Banner at Top-Right
+          TOP HEADER: Codeium Brand Banner at Top-Left & GitHub Button at Top-Right
       ========================================================================= */}
       <header className="w-full flex items-center justify-between gap-4 pt-1 sm:pt-2">
-        {/* Top-Left: (GitHub Logo) GitHub Button */}
+        {/* Top-Left: Codeium Brand Banner */}
+        <div className="flex items-center">
+          <a href="#top" className="flex items-center group" aria-label="Codeium">
+            <img
+              src="/codeium-banner.svg"
+              alt="Codeium Banner"
+              className="h-7 sm:h-9 md:h-11 w-auto object-contain drop-shadow-[0_2px_14px_rgba(139,92,246,0.3)] transition-transform group-hover:scale-[1.02]"
+            />
+          </a>
+        </div>
+
+        {/* Top-Right: (GitHub Logo) GitHub Button */}
         <div className="flex items-center">
           <a
             href="https://github.com/junksidetm/"
@@ -28,32 +39,13 @@ export const Hero: React.FC<HeroProps> = ({ onDeepDive }) => {
             <ExternalLink size={12} className="text-slate-400 hidden sm:inline" />
           </a>
         </div>
-
-        {/* Top-Right: Codeium Brand Banner */}
-        <div className="flex items-center">
-          <a href="#top" className="flex items-center group" aria-label="Codeium">
-            <img
-              src="/codeium-banner.svg"
-              alt="Codeium Banner"
-              className="h-7 sm:h-9 md:h-11 w-auto object-contain drop-shadow-[0_2px_14px_rgba(139,92,246,0.3)] transition-transform group-hover:scale-[1.02]"
-            />
-          </a>
-        </div>
       </header>
 
       {/* =========================================================================
-          MIDDLE HERO: Tag, "Building the future from Chaos to Order"
-          (Developer photo shifted to footer section as requested)
+          MIDDLE HERO: Title & Subline
+          (Developer photo shifted to footer; Brand pill removed as requested)
       ========================================================================= */}
       <div className="my-auto py-4 sm:py-6 md:py-8 flex flex-col items-center text-center max-w-3xl lg:max-w-4xl mx-auto w-full">
-        {/* Brand Tagline Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-950/50 border border-purple-500/30 text-xs sm:text-sm font-mono text-purple-200 mb-4 sm:mb-6 backdrop-blur-md shadow-[0_0_20px_rgba(139,92,246,0.25)]">
-          <Sparkles size={14} className="text-purple-400" />
-          <span className="font-bold tracking-wider uppercase text-white">Codeium</span>
-          <span className="text-white/30">•</span>
-          <span className="text-purple-300 font-medium">Darkside Studio</span>
-        </div>
-
         {/* Main Title: "Building the future from Chaos to Order" */}
         <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.12] mb-4 sm:mb-6 max-w-4xl text-balance">
           Building the future from{" "}
