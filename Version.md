@@ -350,3 +350,13 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
   - `src/data/projects.ts`
   - `Version.md`
 - **Status**: 100% (Completed & Synced)
+
+## [2026-10-10 19:41:00 IST] - 2-Column Expansion for Brave Origin Profile (Windows & macOS Showcase)
+- **Action**: Expanded Brave Origin Profile Windows/MacOS to span 2 grid columns (`md:col-span-2 lg:col-span-2`), occupying the space vacated by Cresto.
+  - Built an expansive side-by-side dual-panel architecture inside the wide card:
+    - **Windows Edition**: Dedicated PowerShell 7 panel detailing registry debloating, anti-telemetry policies, uBlock Origin preset filter bundling, and direct repository/live deployment links.
+    - **macOS Edition**: Dedicated zsh/plist panel detailing Apple Silicon & Intel native support, 1-line terminal deployment, managed plist policies, and direct repository/live deployment links.
+- **Files Modified**:
+  - `src/components/ProjectCard.tsx`
+  - `Version.md`
+- **Status**: 100% (Completed & Synced)
