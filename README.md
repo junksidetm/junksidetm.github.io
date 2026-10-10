@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public\Codium\Codium Banner\SVG\Codium - Banner Transparent White.svg" alt="Codeium Banner" height="200"/>
+  <img src="public\Codeium\Codeium Banner\SVG\Codeium - Banner Transparent White.svg" alt="Codeium Banner" height="200"/><br><br>
   <a href="https://github.com/junksidetm/junksidetm.github.io"><img src="https://img.shields.io/badge/GitHub-Main-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub Main" /></a>
   <a href="https://codeberg.org/mrdarksidetm/pages"><img src="https://img.shields.io/badge/Codeberg-Mirror-2185d0?style=flat-square&logo=codeberg&logoColor=white" alt="Codeberg Mirror" /></a>
   <a href="https://gitlab.com/mrdarksidetm/mrdarksidetm.github.io"><img src="https://img.shields.io/badge/GitLab-Mirror-fc6d26?style=flat-square&logo=gitlab&logoColor=white" alt="GitLab Mirror" /></a>
