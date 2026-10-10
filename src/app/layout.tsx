@@ -2,25 +2,36 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "junksidetm • High-Performance Systems & Native Android Suite",
-  description: "Official software forge of junksidetm: Native Android applications, Material 3 Expressive architectures, WebAssembly runtimes, and system automation tools.",
-  keywords: ["Android", "Jetpack Compose", "Flutter", "Material 3", "WebAssembly", "Next.js", "WinForge", "junksidetm"],
-  authors: [{ name: "junksidetm", url: "https://github.com/junksidetm" }],
+  title: "Codeium • Darkside Studio | High-Performance Native Android & Systems Suite",
+  description: "Official software showcase of Codeium (Darkside Studio): Flagship Native Android Jetpack Compose & Flutter architectures, WebAssembly runtimes, and system automation suites by Abhijeet Yadav (@junksidetm).",
+  keywords: [
+    "Codeium",
+    "Darkside Studio",
+    "Android",
+    "Jetpack Compose",
+    "Flutter",
+    "Material 3 Expressive",
+    "WebAssembly",
+    "Next.js",
+    "junksidetm",
+    "mrdarksidetm"
+  ],
+  authors: [{ name: "Abhijeet Yadav", url: "https://github.com/junksidetm" }],
   icons: {
-    icon: "/favicon.svg",
-    apple: "/logo.svg",
+    icon: "/Codeium/Codeium Logo/SVG/Codium - Logo Black.svg",
+    apple: "/Codeium/Codeium Logo/PNG/Codium - Logo Black.png",
   },
   openGraph: {
-    title: "junksidetm • High-Performance Systems & Native Android Suite",
-    description: "Official software forge of junksidetm: Native Android, WebAssembly, and Desktop Tools.",
+    title: "Codeium • Darkside Studio | High-Performance Systems & Native Android Suite",
+    description: "Official software showcase of Codeium (Darkside Studio): Native Android Compose, Flutter M3, WebAssembly, and Automation Tools.",
     url: "https://junksidetm.github.io",
-    siteName: "junksidetm Forge",
+    siteName: "Codeium by Darkside Studio",
     images: [
       {
-        url: "/hero.png",
-        width: 1200,
-        height: 630,
-        alt: "junksidetm Forge",
+        url: "/developer.png",
+        width: 800,
+        height: 800,
+        alt: "Abhijeet Yadav - Codeium",
       },
     ],
     locale: "en_US",
@@ -34,8 +45,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className="m3-mesh-bg text-slate-100 min-h-screen selection:bg-purple-600 selection:text-white">
+    <html lang="en" className="dark scroll-smooth">
+      <body className="bg-[#06070a] text-slate-100 min-h-screen selection:bg-purple-600 selection:text-white antialiased overflow-x-hidden">
         {children}
       </body>
     </html>

@@ -45,6 +45,7 @@ const config: Config = {
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "float": "float 6s ease-in-out infinite",
         "glow": "glow 3s ease-in-out infinite alternate",
+        "spin-slow": "spin 12s linear infinite",
       },
       keyframes: {
         float: {

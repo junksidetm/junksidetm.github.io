@@ -8,7 +8,7 @@
 
 <br>
 
-**Codeium** is the official central portal and software forge for all applications, utilities, and system toolkits engineered by **Abhijeet Yadav** ([@junksidetm](https://github.com/junksidetm)).
+**Codeium** is the official central portal and software ecosystem hub for all applications, utilities, and system toolkits engineered by **Abhijeet Yadav** ([@junksidetm](https://github.com/junksidetm)).
 
   <a href="https://junksidetm.github.io/"><img src="https://raw.githubusercontent.com/junksidetm/assests/2059cd31ecfc7cd57fab1d30a4baa11810783b48/Images/badges/SVG%20-%20Version/Website%20Badge.svg" width ="300"></a>
 </div>

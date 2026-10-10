@@ -126,7 +126,7 @@ export const PROJECTS: Project[] = [
   {
     id: "winforge",
     name: "WinForge",
-    tagline: "Windows Performance & System Automation Forge",
+    tagline: "Windows Performance & System Automation Suite",
     description: "Automated PowerShell and native batch pipeline for debloating, telemetry suppression, registry optimization, and workstation acceleration.",
     category: "desktop",
     icon: "/winforge-logo.svg",

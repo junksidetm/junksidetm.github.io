@@ -11,7 +11,7 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2 text-xs font-mono text-purple-400 hover:text-purple-300 transition-colors">
             <ArrowLeft size={14} />
-            <span>Return to Forge</span>
+            <span>Return to Codeium</span>
           </a>
 
           <div className="flex items-center gap-2">
@@ -36,7 +36,7 @@ export default function AboutPage() {
               <span>SYSTEM ARCHITECT & ENGINEER</span>
             </div>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              junksidetm Forge
+              Codeium • Darkside Studio
             </h1>
             <p className="mt-2 text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
               Specialized in native Android engineering, Material 3 Expressive motion systems, high-speed WebAssembly engines, and cryptographic platform verification.

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Github, Terminal, Search, Sparkles } from "lucide-react";
+import { Github, Search, Sparkles, ExternalLink } from "lucide-react";
 
 interface NavbarProps {
   onOpenSearch: () => void;
@@ -9,26 +9,30 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-white/5 bg-[#07080c]/80 backdrop-blur-xl transition-all">
+    <header className="sticky top-0 z-40 w-full border-b border-white/5 bg-[#06070a]/85 backdrop-blur-xl transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
         {/* Brand */}
-        <a href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 via-indigo-600 to-cyan-500 p-[1px] shadow-lg shadow-purple-500/20 group-hover:scale-105 transition-transform">
-            <div className="w-full h-full bg-[#0d0f17] rounded-[11px] flex items-center justify-center overflow-hidden">
-              <img src="/logo.svg" alt="junksidetm" className="w-6 h-6 object-contain" />
+        <a href="#top" className="flex items-center gap-3 group">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 via-rose-600 to-red-600 p-[1px] shadow-lg shadow-purple-500/20 group-hover:scale-105 transition-transform">
+            <div className="w-full h-full bg-[#0d0f17] rounded-[11px] flex items-center justify-center p-1.5 overflow-hidden">
+              <img 
+                src="/Codeium/Codeium Logo/SVG/Codium - Logo Black.svg" 
+                alt="Codeium Logo" 
+                className="w-full h-full object-contain invert" 
+              />
             </div>
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold tracking-tight text-white text-lg group-hover:text-purple-400 transition-colors">
-                junksidetm
+              <span className="font-extrabold tracking-tight text-white text-base sm:text-lg group-hover:text-purple-300 transition-colors">
+                Codeium
               </span>
-              <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20 font-bold">
-                Forge
+              <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-gradient-to-r from-purple-500/10 to-red-500/10 text-rose-300 border border-purple-500/20 font-bold">
+                Darkside Studio
               </span>
             </div>
             <p className="text-[11px] text-slate-400 font-mono tracking-tight hidden sm:block">
-              Android Native • M3 Expressive • Systems
+              Android Native • Material 3 Expressive • Toolchains
             </p>
           </div>
         </a>
@@ -36,7 +40,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
         {/* Center / Search pill */}
         <button
           onClick={onOpenSearch}
-          className="hidden md:flex items-center gap-3 px-4 py-2 rounded-full bg-[#131722]/80 hover:bg-[#1a1f2e] border border-white/10 text-slate-400 hover:text-white transition-all text-xs font-mono group shadow-inner"
+          className="hidden md:flex items-center gap-3 px-4 py-2 rounded-full bg-[#121422]/80 hover:bg-[#1a1c30] border border-white/10 text-slate-400 hover:text-white transition-all text-xs font-mono group shadow-inner"
+          aria-label="Quick find project"
         >
           <Search size={14} className="text-purple-400 group-hover:scale-110 transition-transform" />
           <span>Quick Find Project...</span>
@@ -53,13 +58,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
           </div>
 
           <a
-            href="https://github.com/junksidetm"
+            href="https://github.com/junksidetm/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#131722] hover:bg-[#1c2233] border border-white/10 text-slate-200 hover:text-white text-xs font-semibold transition-all shadow-sm"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 hover:border-purple-500/40 text-slate-200 hover:text-white text-xs font-semibold transition-all shadow-sm"
           >
-            <Github size={16} />
+            <Github size={16} className="text-purple-400" />
             <span className="hidden sm:inline">GitHub</span>
+            <ExternalLink size={12} className="text-slate-400" />
           </a>
         </div>
       </div>
