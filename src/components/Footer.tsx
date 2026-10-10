@@ -91,6 +91,16 @@ export const Footer: React.FC = () => {
               </h4>
               <ul className="space-y-2.5 text-xs sm:text-sm">
                 <li>
+                  <a href="https://github.com/junksidetm/Brave-Origin-Profile-Windows" target="_blank" rel="noopener noreferrer" className="hover:text-purple-300 transition-colors">
+                    Brave Profile (Windows)
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/junksidetm/Brave-Origin-Profile-MacOS" target="_blank" rel="noopener noreferrer" className="hover:text-purple-300 transition-colors">
+                    Brave Profile (macOS)
+                  </a>
+                </li>
+                <li>
                   <a href="https://github.com/junksidetm/vector-drawable-nextjs" target="_blank" rel="noopener noreferrer" className="hover:text-purple-300 transition-colors">
                     Vector Drawable Next.js
                   </a>
@@ -119,29 +129,79 @@ export const Footer: React.FC = () => {
                 <Github size={14} className="text-purple-400" />
                 <span>Mirrors &amp; Sources</span>
               </h4>
-              <ul className="space-y-2.5 text-xs sm:text-sm">
+              <ul className="space-y-3 text-xs sm:text-sm">
+                {/* GitHub Main with Official Logo */}
                 <li>
-                  <a href="https://github.com/junksidetm/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-300 transition-colors flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
+                  <a
+                    href="https://github.com/junksidetm/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group hover:text-purple-300 transition-colors flex items-center gap-2.5 text-slate-300"
+                  >
+                    <Github size={16} className="text-white group-hover:scale-110 transition-transform shrink-0" />
                     <span>GitHub Main (@junksidetm)</span>
                   </a>
                 </li>
+
+                {/* Codeberg Mirror with Official Codeberg Iceberg Logo */}
                 <li>
-                  <a href="https://codeberg.org/mrdarksidetm" target="_blank" rel="noopener noreferrer" className="hover:text-purple-300 transition-colors flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+                  <a
+                    href="https://codeberg.org/mrdarksidetm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group hover:text-purple-300 transition-colors flex items-center gap-2.5 text-slate-300"
+                  >
+                    <svg
+                      className="w-4 h-4 shrink-0 text-[#2185D0] fill-current group-hover:scale-110 transition-transform"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 1.5a10.5 10.5 0 0 0-10.5 10.5 10.5 10.5 0 0 0 .37 2.76l7.85-4.1a3.5 3.5 0 0 1 4.56 0l7.85 4.1a10.5 10.5 0 0 0 .37-2.76A10.5 10.5 0 0 0 12 1.5zm-5.78 12.3l-3.3 1.72a10.5 10.5 0 0 0 18.16 0l-3.3-1.72-4.14 2.16a3.5 3.5 0 0 1-3.28 0l-4.14-2.16z" />
+                    </svg>
                     <span>Codeberg Mirror (@mrdarksidetm)</span>
                   </a>
                 </li>
+
+                {/* GitLab Mirror with Official GitLab Logo */}
                 <li>
-                  <a href="https://gitlab.com/mrdarksidetm" target="_blank" rel="noopener noreferrer" className="hover:text-purple-300 transition-colors flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-purple-300" />
+                  <a
+                    href="https://gitlab.com/mrdarksidetm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group hover:text-purple-300 transition-colors flex items-center gap-2.5 text-slate-300"
+                  >
+                    <svg
+                      className="w-4 h-4 shrink-0 fill-current text-[#FC6D26] group-hover:scale-110 transition-transform"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 5.48 2h.06a.43.43 0 0 1 .4.28L8.3 9.42h7.4l2.36-7.14a.43.43 0 0 1 .4-.28h.06a.42.42 0 0 1 .37.16l2.44 7.51 1.22 3.78a.84.84 0 0 1-.3.94z" />
+                    </svg>
                     <span>GitLab Mirror (@mrdarksidetm)</span>
                   </a>
                 </li>
-                <li>
-                  <a href="https://m3.material.io/" target="_blank" rel="noopener noreferrer" className="hover:text-slate-200 transition-colors text-xs text-slate-400 flex items-center gap-1 mt-2">
-                    <span>Material 3 Standard</span>
-                    <ExternalLink size={11} />
+
+                {/* Developer Profile Link with Small Developer Photo & Big Text */}
+                <li className="pt-3 border-t border-purple-500/15 mt-3">
+                  <a
+                    href="https://github.com/junksidetm/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-3 text-white hover:text-purple-300 transition-all cursor-pointer"
+                    aria-label="Developer Profile on GitHub"
+                  >
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border-2 border-purple-500/50 p-0.5 bg-purple-950/60 shadow-md group-hover:scale-110 group-hover:border-purple-400 transition-all shrink-0">
+                      <img
+                        src="/developer.png"
+                        alt="Developer"
+                        className="w-full h-full object-cover rounded-full"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-base sm:text-lg font-bold text-white group-hover:text-purple-300 transition-colors flex items-center gap-1.5">
+                        <span>Developer</span>
+                        <ExternalLink size={14} className="text-purple-400 group-hover:translate-x-0.5 transition-transform" />
+                      </span>
+                      <span className="text-[11px] font-mono text-purple-300/80">@junksidetm</span>
+                    </div>
                   </a>
                 </li>
               </ul>
@@ -153,7 +213,6 @@ export const Footer: React.FC = () => {
           ========================================================================= */}
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
             <div className="flex items-center gap-3">
-              {/* Replaced Codeium logo with Darkside Studio Logo - Balck.png */}
               <img
                 src="/darkside-studio-logo-black.png"
                 alt="Darkside Studio Logo"

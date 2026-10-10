@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Codeium • Darkside Studio | High-Performance Native Android & Systems Suite",
+  title: "Codeium",
   description: "Official software showcase of Codeium (Darkside Studio): Flagship Native Android Jetpack Compose & Flutter architectures, WebAssembly runtimes, and system automation suites by Abhijeet Yadav (@junksidetm).",
   keywords: [
     "Codeium",
@@ -22,10 +22,10 @@ export const metadata: Metadata = {
     apple: "/codeium-logo.svg",
   },
   openGraph: {
-    title: "Codeium • Darkside Studio | High-Performance Systems & Native Android Suite",
+    title: "Codeium",
     description: "Official software showcase of Codeium (Darkside Studio): Native Android Compose, Flutter M3, WebAssembly, and Automation Tools.",
     url: "https://junksidetm.github.io",
-    siteName: "Codeium by Darkside Studio",
+    siteName: "Codeium",
     images: [
       {
         url: "/developer.png",

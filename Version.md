@@ -306,3 +306,28 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
   - `public/emoji3d-logo.png`
   - `Version.md`
 - **Status**: 100% (Completed & Synced)
+
+## [2026-10-10 19:24:30 IST] - Toolbar Branding Simplification, Footer Developer Profile & Multi-OS Brave Matrix
+- **Action**: Further refined brand consistency, navigation headers, mirror representation, and dual-OS profile architecture.
+  - **Toolbar & Page Metadata**:
+    - Simplified toolbar title to strictly "Codeium" with official logo in `Navbar.tsx`.
+    - Updated HTML document metadata title and OpenGraph site name to strictly "Codeium" in `src/app/layout.tsx`.
+  - **Main View Area (MVA) Optimization**:
+    - Relocated developer circular photo from MVA to the footer section, allowing the landing headline, brand tagline, and "Let's Deep Dive" button to breathe with full viewport responsiveness.
+  - **Footer Mirrors & Developer Showcase**:
+    - Integrated official vector SVG logos for GitHub, Codeberg (official iceberg vector), and GitLab (official tanuki vector) replacing plain text badges.
+    - Replaced the legacy Material 3 standard link with a small developer portrait avatar and prominent, bold "Developer" link targeting `https://github.com/junksidetm/`.
+  - **Brave Origin Profile Windows/MacOS**:
+    - Renamed project to "Brave Origin Profile Windows/MacOS".
+    - Architected two distinct platform cards within `ProjectCard.tsx` covering:
+      - Windows: PowerShell installation pipeline, registry debloating, and uBlock Origin rule bundling (`https://github.com/junksidetm/Brave-Origin-Profile-Windows`).
+      - macOS: Automated zsh script, managed plist preferences, and privacy rules (`https://github.com/junksidetm/Brave-Origin-Profile-MacOS`).
+- **Files Modified**:
+  - `src/app/layout.tsx`
+  - `src/components/Navbar.tsx`
+  - `src/components/Hero.tsx`
+  - `src/components/Footer.tsx`
+  - `src/components/ProjectCard.tsx`
+  - `src/data/projects.ts`
+  - `Version.md`
+- **Status**: 100% (Completed & Synced)

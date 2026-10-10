@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ExternalLink, Github, Download, QrCode } from "lucide-react";
+import { ExternalLink, Github, Download, QrCode, Monitor, Laptop } from "lucide-react";
 import { Project } from "../data/projects";
 
 interface ProjectCardProps {
@@ -15,6 +15,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenQr }) =
     project.apkDownload?.universal ||
     project.apkDownload?.arm64 ||
     project.apkDownload?.unclone;
+
+  const isBraveOrigin = project.id === "brave-origin";
 
   return (
     <div
@@ -52,9 +54,86 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenQr }) =
         </p>
 
         {/* Description */}
-        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5">
+        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-4">
           {project.description}
         </p>
+
+        {/* Two-section breakdown for Brave Origin Profile (Windows & macOS) */}
+        {isBraveOrigin && (
+          <div className="mb-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5 font-mono text-xs">
+            {/* Windows Section */}
+            <div className="p-3 rounded-2xl bg-purple-950/40 border border-purple-500/20 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="font-bold text-white flex items-center gap-1.5">
+                    <Monitor size={13} className="text-purple-400" />
+                    <span>Windows</span>
+                  </span>
+                  <span className="text-[9px] text-purple-300/80 bg-purple-900/40 px-1.5 py-0.5 rounded border border-purple-500/20">
+                    PowerShell
+                  </span>
+                </div>
+                <p className="text-[11px] text-slate-300 font-sans mb-3 leading-tight">
+                  Registry policies &amp; uBlock Origin rules.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 pt-1 border-t border-purple-500/10">
+                <a
+                  href="https://github.com/junksidetm/Brave-Origin-Profile-Windows"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 py-1.5 px-2 text-center rounded-lg bg-purple-900/40 hover:bg-purple-800/60 text-[10px] text-purple-200 font-semibold border border-purple-500/25 transition-colors"
+                >
+                  Repo
+                </a>
+                <a
+                  href="https://junksidetm.github.io/Brave-Origin-Profile-Windows/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 py-1.5 px-2 text-center rounded-lg bg-purple-600/30 hover:bg-purple-600/50 text-[10px] text-white font-bold border border-purple-500/30 transition-colors"
+                >
+                  Live
+                </a>
+              </div>
+            </div>
+
+            {/* macOS Section */}
+            <div className="p-3 rounded-2xl bg-purple-950/40 border border-purple-500/20 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="font-bold text-white flex items-center gap-1.5">
+                    <Laptop size={13} className="text-purple-400" />
+                    <span>macOS</span>
+                  </span>
+                  <span className="text-[9px] text-purple-300/80 bg-purple-900/40 px-1.5 py-0.5 rounded border border-purple-500/20">
+                    zsh / plist
+                  </span>
+                </div>
+                <p className="text-[11px] text-slate-300 font-sans mb-3 leading-tight">
+                  Managed preferences &amp; automated zsh setup.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 pt-1 border-t border-purple-500/10">
+                <a
+                  href="https://github.com/junksidetm/Brave-Origin-Profile-MacOS"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 py-1.5 px-2 text-center rounded-lg bg-purple-900/40 hover:bg-purple-800/60 text-[10px] text-purple-200 font-semibold border border-purple-500/25 transition-colors"
+                >
+                  Repo
+                </a>
+                <a
+                  href="https://junksidetm.github.io/Brave-Origin-Profile-MacOS/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 py-1.5 px-2 text-center rounded-lg bg-purple-600/30 hover:bg-purple-600/50 text-[10px] text-white font-bold border border-purple-500/30 transition-colors"
+                >
+                  Live
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Middle: Tech Stack */}

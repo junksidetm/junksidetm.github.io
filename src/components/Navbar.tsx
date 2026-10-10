@@ -20,10 +20,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-purple-500/20 bg-[#070514]/85 backdrop-blur-2xl transition-all shadow-[0_4px_30px_rgba(139,92,246,0.12)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-16 flex items-center justify-between gap-4">
-        {/* Left Side: Just Codeium Logo as it is */}
+        {/* Left Side: Codeium Logo and Toolbar Name "Codeium" */}
         <a 
           href="#top" 
-          className="flex items-center transition-transform hover:scale-105 active:scale-95" 
+          className="flex items-center gap-2.5 transition-transform hover:scale-105 active:scale-95" 
           aria-label="Codeium"
         >
           <img 
@@ -31,6 +31,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             alt="Codeium Logo" 
             className="w-8 h-8 sm:w-9 sm:h-9 object-contain" 
           />
+          <span className="font-extrabold tracking-tight text-white text-base sm:text-lg">
+            Codeium
+          </span>
         </a>
 
         {/* Right Side: Search bar with Windows/macOS shortcut keyboard button */}
