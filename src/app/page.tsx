@@ -77,29 +77,26 @@ export default function HomePage() {
 
   return (
     <div id="top" className="min-h-screen flex flex-col relative selection:bg-purple-600 selection:text-white">
-      {/* Dynamic Cosmic Flare Animated Background */}
+      {/* Dynamic Cosmic Flare Animated Background (Subtle red & purple in MVA; pure purple in PS) */}
       <CosmicBackground />
 
-      {/* Main Full-Viewport Hero Landing View (Occupies full 100vh) */}
-      <Hero
-        onDeepDive={handleDeepDive}
-        totalProjects={PROJECTS.length}
-      />
+      {/* Main Full-Viewport Hero Landing View (MVA: Occupies 100dvh, responsive across phones, tablets, PC) */}
+      <Hero onDeepDive={handleDeepDive} />
 
       {/* =========================================================================
-          SHOWCASE SECTION: Naturally below the fold; smooth scrollable transition
+          ALL PROJECT SHOWCASE (PS): Pure Purple Palette & 30% Opacity Squares Matrix
       ========================================================================= */}
       <section
         id="showcase-section"
-        className="w-full relative z-10 pt-4"
+        className="w-full relative z-10 pt-2"
       >
-        {/* Sticky Showcase Navbar */}
+        {/* Distorted / Blurred Top Bar on PS with Codeium Logo & Search Bar */}
         <Navbar onOpenSearch={() => setIsCommandPaletteOpen(true)} />
 
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full pt-10 flex-grow">
           {/* Header Controls: Search & Category Pills */}
           <div className="mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            {/* Category Pills */}
+            {/* Category Pills (Pure Purple hues) */}
             <div className="flex flex-wrap items-center gap-2">
               {categories.map((cat) => {
                 const IconComponent = cat.icon;
@@ -110,8 +107,8 @@ export default function HomePage() {
                     onClick={() => setSelectedCategory(cat.id)}
                     className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all cursor-pointer ${
                       isSelected
-                        ? "bg-gradient-to-r from-purple-600 to-rose-600 text-white shadow-lg shadow-purple-900/40 border border-purple-400/40 font-semibold"
-                        : "bg-[#121422]/80 hover:bg-[#1a1c30] text-slate-300 hover:text-white border border-white/5"
+                        ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-900/40 border border-purple-400/40 font-semibold"
+                        : "bg-[#120e24]/80 hover:bg-[#1a1435] text-slate-300 hover:text-white border border-purple-500/10"
                     }`}
                   >
                     <IconComponent size={14} className={isSelected ? "text-white" : "text-purple-400"} />
@@ -129,12 +126,12 @@ export default function HomePage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search tools, APKs, tags..."
-                className="w-full pl-9 pr-4 py-2 rounded-xl bg-[#121422]/90 border border-white/10 focus:border-purple-500/50 focus:outline-none text-xs sm:text-sm text-white placeholder-slate-400 backdrop-blur-md transition-all font-mono"
+                className="w-full pl-9 pr-4 py-2 rounded-xl bg-[#120e24]/90 border border-purple-500/20 focus:border-purple-400/60 focus:outline-none text-xs sm:text-sm text-white placeholder-slate-400 backdrop-blur-md transition-all font-mono"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-white font-mono"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-purple-400 hover:text-white font-mono"
                 >
                   Clear
                 </button>
@@ -143,14 +140,14 @@ export default function HomePage() {
           </div>
 
           {/* =====================================================================
-              FLAGSHIP SPOTLIGHT: The Dual Wallet Architecture (Compose vs Flutter)
+              FLAGSHIP SPOTLIGHT: Dual Wallet Suite (Strictly Purple Aesthetics)
           ===================================================================== */}
           {selectedCategory === "all" && searchQuery === "" && (
             <section className="mb-14">
-              <div className="relative rounded-3xl bg-gradient-to-br from-[#121524] via-[#0d101c] to-[#141728] border border-purple-500/30 p-6 sm:p-8 lg:p-10 overflow-hidden shadow-2xl">
-                {/* Flare orbs */}
-                <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl pointer-events-none" />
-                <div className="absolute bottom-0 left-1/3 -mb-20 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="relative rounded-3xl bg-gradient-to-br from-[#120e26] via-[#0d091e] to-[#150f2e] border border-purple-500/30 p-6 sm:p-8 lg:p-10 overflow-hidden shadow-2xl">
+                {/* Purple ambient flare orbs */}
+                <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-purple-600/25 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-1/3 -mb-20 w-80 h-80 bg-purple-700/15 rounded-full blur-3xl pointer-events-none" />
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                   {/* Left Info */}
@@ -159,7 +156,7 @@ export default function HomePage() {
                       <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-purple-500/20 text-purple-300 border border-purple-500/30">
                         FLAGSHIP SUITE
                       </span>
-                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-rose-500/15 text-rose-300 border border-rose-500/30">
+                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-purple-500/20 text-purple-300 border border-purple-500/30">
                         DUAL ARCHITECTURE SUITE
                       </span>
                     </div>
@@ -170,11 +167,11 @@ export default function HomePage() {
                     <p className="text-slate-300 text-sm leading-relaxed mb-6">
                       Engineered to explore the absolute zenith of modern Android development. 
                       Experience the contrast between a <span className="text-purple-300 font-semibold">100% Native Jetpack Compose</span> engine 
-                      built with low-level Canvas primitives, and a <span className="text-rose-300 font-semibold">Material 3 Expressive Flutter</span> suite.
+                      built with low-level Canvas primitives, and a <span className="text-purple-300 font-semibold">Material 3 Expressive Flutter</span> suite.
                     </p>
 
-                    {/* Architecture Selector Toggle */}
-                    <div className="inline-flex p-1 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-md mb-6">
+                    {/* Architecture Selector Toggle (Pure Purple) */}
+                    <div className="inline-flex p-1 rounded-2xl bg-black/40 border border-purple-500/20 backdrop-blur-md mb-6">
                       <button
                         onClick={() => setActiveWalletTab("compose")}
                         className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
@@ -190,7 +187,7 @@ export default function HomePage() {
                         onClick={() => setActiveWalletTab("flutter")}
                         className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                           activeWalletTab === "flutter"
-                            ? "bg-rose-600 text-white shadow-lg shadow-rose-600/40"
+                            ? "bg-purple-600 text-white shadow-lg shadow-purple-600/40"
                             : "text-slate-300 hover:text-white"
                         }`}
                       >
@@ -204,7 +201,7 @@ export default function HomePage() {
                       {currentWallet.techStack.map((tech) => (
                         <div
                           key={tech}
-                          className="px-3 py-2 rounded-xl bg-white/[0.04] border border-white/5 text-xs font-mono text-slate-300 flex items-center gap-2"
+                          className="px-3 py-2 rounded-xl bg-purple-950/30 border border-purple-500/15 text-xs font-mono text-purple-200 flex items-center gap-2"
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
                           <span>{tech}</span>
@@ -217,7 +214,7 @@ export default function HomePage() {
                       {currentWallet.apkDownload?.universal && (
                         <a
                           href={currentWallet.apkDownload.universal}
-                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-500 hover:to-rose-500 text-white text-xs sm:text-sm font-bold shadow-lg shadow-purple-600/30 transition-all active:scale-95"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs sm:text-sm font-bold shadow-lg shadow-purple-600/30 transition-all active:scale-95"
                         >
                           <Download size={15} />
                           <span>Download APK ({activeWalletTab.toUpperCase()})</span>
@@ -227,7 +224,7 @@ export default function HomePage() {
                         href={currentWallet.repoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs sm:text-sm font-semibold transition-all"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-purple-950/40 hover:bg-purple-900/40 border border-purple-500/20 text-white text-xs sm:text-sm font-semibold transition-all"
                       >
                         <ExternalLink size={14} />
                         <span>View Repository</span>
@@ -237,8 +234,8 @@ export default function HomePage() {
 
                   {/* Right Interactive Preview */}
                   <div className="lg:col-span-5">
-                    <div className="relative rounded-2xl bg-black/60 border border-white/10 p-5 backdrop-blur-xl">
-                      <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+                    <div className="relative rounded-2xl bg-black/60 border border-purple-500/20 p-5 backdrop-blur-xl">
+                      <div className="flex items-center justify-between pb-4 border-b border-purple-500/15 mb-4">
                         <div className="flex items-center gap-3">
                           <img
                             src={currentWallet.icon}
@@ -252,15 +249,15 @@ export default function HomePage() {
                         </div>
                         <button
                           onClick={() => setQrProject(currentWallet)}
-                          className="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] font-mono text-slate-300 transition-colors cursor-pointer"
+                          className="px-2.5 py-1.5 rounded-lg bg-purple-950/40 hover:bg-purple-900/50 border border-purple-500/30 text-[11px] font-mono text-purple-200 transition-colors cursor-pointer"
                         >
                           QR APK
                         </button>
                       </div>
 
                       {/* Code Clone Command box */}
-                      <div className="rounded-xl bg-[#08090f] border border-white/5 p-3 font-mono text-xs text-slate-300">
-                        <div className="flex items-center justify-between text-[11px] text-slate-400 mb-2">
+                      <div className="rounded-xl bg-[#090714] border border-purple-500/20 p-3 font-mono text-xs text-purple-200">
+                        <div className="flex items-center justify-between text-[11px] text-purple-400 mb-2">
                           <span>FAST CLONE</span>
                           <button
                             onClick={() => handleCopyClone(`git clone ${currentWallet.repoUrl}.git`)}
@@ -276,14 +273,14 @@ export default function HomePage() {
                       </div>
 
                       {/* Architecture features breakdown */}
-                      <div className="mt-4 space-y-2 text-xs text-slate-300">
-                        <div className="flex items-center justify-between py-1 border-b border-white/5">
+                      <div className="mt-4 space-y-2 text-xs text-purple-200">
+                        <div className="flex items-center justify-between py-1 border-b border-purple-500/15">
                           <span className="text-slate-400">Persistence</span>
                           <span className="font-mono text-white">Room DB (Offline-First)</span>
                         </div>
-                        <div className="flex items-center justify-between py-1 border-b border-white/5">
+                        <div className="flex items-center justify-between py-1 border-b border-purple-500/15">
                           <span className="text-slate-400">Signing Standard</span>
-                          <span className="font-mono text-emerald-400">SHA-256 Release Signed</span>
+                          <span className="font-mono text-purple-300">SHA-256 Release Signed</span>
                         </div>
                         <div className="flex items-center justify-between py-1">
                           <span className="text-slate-400">Frame Budget</span>
@@ -306,14 +303,14 @@ export default function HomePage() {
                 <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                   Software Ecosystem Directory
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                <p className="text-xs sm:text-sm text-purple-300/80 mt-1 font-mono">
                   Showing {filteredProjects.length} of {PROJECTS.length} repositories
                 </p>
               </div>
             </div>
 
             {filteredProjects.length === 0 ? (
-              <div className="p-12 text-center rounded-3xl bg-white/[0.02] border border-white/5 font-mono text-slate-400">
+              <div className="p-12 text-center rounded-3xl bg-purple-950/20 border border-purple-500/20 font-mono text-slate-400">
                 <p>No repositories found matching &quot;{searchQuery}&quot;</p>
                 <button
                   onClick={() => { setSelectedCategory("all"); setSearchQuery(""); }}

@@ -81,7 +81,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenQr }) =
         {/* Performance / Stat Row */}
         <div className="flex items-center justify-between p-3 rounded-2xl bg-[#0b0d14] border border-white/5 mb-6 text-xs font-mono">
           <span className="text-slate-400">{project.stats.label}</span>
-          <span className="text-cyan-400 font-bold">{project.stats.value}</span>
+          <span className="text-purple-300 font-bold">{project.stats.value}</span>
         </div>
 
         {/* Action Row */}
@@ -117,7 +117,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenQr }) =
               href={apkUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-lg shadow-emerald-600/20 transition-all"
+              className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold shadow-lg shadow-purple-600/25 transition-all"
               title="Direct APK Download"
             >
               <Download size={14} />
