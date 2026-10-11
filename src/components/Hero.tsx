@@ -20,7 +20,8 @@ export const Hero: React.FC<HeroProps> = ({ onDeepDive }) => {
             <img
               src="/codeium-banner.svg"
               alt="Codeium Banner"
-              className="h-7 sm:h-9 md:h-11 w-auto object-contain drop-shadow-[0_2px_14px_rgba(139,92,246,0.3)] transition-transform group-hover:scale-[1.02]"
+              draggable={false}
+              className="h-7 sm:h-9 md:h-11 w-auto object-contain drop-shadow-[0_2px_14px_rgba(139,92,246,0.3)] transition-transform group-hover:scale-[1.02] pointer-events-none select-none"
             />
           </a>
         </div>

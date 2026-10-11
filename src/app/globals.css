@@ -99,21 +99,51 @@ body {
 }
 
 /* ============================================================================
- * GLOBAL IMAGE HIT-TESTING & LINK-ONLY CONTEXT MENU ENGINE
+ * UNIVERSAL IMAGE INTERACTION SUPPRESSION (SITE-WIDE)
  * ============================================================================
- * Disables browser image-specific context menus ("Save image as...", "Copy image")
- * for all linked images globally by bypassing pointer hit-testing directly to the
- * parent <a> anchor element. Also suppresses native image drag and selection.
+ * Completely disables mouse clicks, right-click image context menus ("Save image as...",
+ * "Copy image", etc.), hover interactions, native ghost drags, and text selection
+ * across EVERY image (.png, .svg, and general img elements) on the entire website.
+ * When an image is inside an <a> tag, clicks pass through to the anchor element.
  */
 
 /* Enforce pointer cursor on anchors wrapping images or SVGs */
 a:has(> img),
 a:has(> svg),
-a:has(> picture) {
+a:has(> picture),
+a:has(img) {
   cursor: pointer;
 }
 
-/* Universal linked images, SVGs, and picture sources */
+/* Universal suppression across ALL images site-wide */
+img,
+image,
+picture img {
+  pointer-events: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
+}
+
+/* Specific attribute matching for all .png and .svg assets site-wide */
+img[src$=".png" i],
+img[src*=".png?" i],
+img[src$=".svg" i],
+img[src*=".svg?" i],
+object[type="image/svg+xml"],
+embed[type="image/svg+xml"] {
+  pointer-events: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
+  user-select: none !important;
+}
+
+/* Universal linked images, SVGs, and picture sources pass-through */
 a > img,
 a > svg,
 a > svg *,
@@ -129,27 +159,5 @@ a svg {
   user-select: none;
   -webkit-user-drag: none;
   user-drag: none;
-}
-
-/* Extension-specific targeting for .png and .svg (including query parameters) */
-a img[src$=".png" i],
-a img[src*=".png?" i],
-a img[src$=".svg" i],
-a img[src*=".svg?" i],
-a object[type="image/svg+xml"],
-a embed[type="image/svg+xml"] {
-  pointer-events: none;
-  -webkit-touch-callout: none;
-  -webkit-user-drag: none;
-  user-drag: none;
-}
-
-/* Global media behavior: prevent ghost dragging and selection on all images */
-img,
-svg {
-  -webkit-user-drag: none;
-  user-drag: none;
-  -webkit-user-select: none;
-  user-select: none;
 }
 

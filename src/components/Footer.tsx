@@ -37,7 +37,8 @@ export const Footer: React.FC = () => {
                 <img
                   src="/codeium-banner.svg"
                   alt="Codeium Banner"
-                  className="h-9 sm:h-11 w-auto object-contain drop-shadow-[0_2px_12px_rgba(139,92,246,0.3)] transition-transform group-hover:scale-[1.02]"
+                  draggable={false}
+                  className="h-9 sm:h-11 w-auto object-contain drop-shadow-[0_2px_12px_rgba(139,92,246,0.3)] transition-transform group-hover:scale-[1.02] pointer-events-none select-none"
                 />
               </a>
 
@@ -192,7 +193,8 @@ export const Footer: React.FC = () => {
                       <img
                         src="/developer.png"
                         alt="Developer"
-                        className="w-full h-full object-cover rounded-full"
+                        draggable={false}
+                        className="w-full h-full object-cover rounded-full pointer-events-none select-none"
                       />
                     </div>
                     <div className="flex flex-col">
@@ -216,7 +218,8 @@ export const Footer: React.FC = () => {
               <img
                 src="/darkside-studio-logo-black.png"
                 alt="Darkside Studio Logo"
-                className="w-5 h-5 sm:w-6 sm:h-6 object-contain shrink-0"
+                draggable={false}
+                className="w-5 h-5 sm:w-6 sm:h-6 object-contain shrink-0 pointer-events-none select-none"
               />
               <p>
                 &copy; 2026 Abhijeet Yadav. <strong className="text-slate-300">&quot;Codeium&quot;</strong> is a part of Darkside Studio. All rights reserved.

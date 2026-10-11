@@ -47,7 +47,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenQr }) =
             <img
               src={project.icon}
               alt={project.name}
-              className={`w-full h-full object-contain transition-transform ${
+              draggable={false}
+              className={`w-full h-full object-contain transition-transform pointer-events-none select-none ${
                 isRivo
                   ? "scale-[1.85]"
                   : isInstafel

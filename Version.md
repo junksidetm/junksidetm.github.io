@@ -446,3 +446,30 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
   - `src/components/CodeiumSkyline.tsx`
   - `Version.md`
 - **Status**: 100% (Completed & Synced)
+
+## [2026-10-11 16:06:00 IST] - Universal Unclickable, Non-Draggable Media Engine Across All Site Assets
+- **Action**: Enforced complete pointer event suppression (`pointer-events: none !important`), drag prevention (`-webkit-user-drag: none !important; user-drag: none !important`), and selection suppression across every image site-wide:
+  - **Global CSS Enforcement (`src/app/globals.css`)**:
+    - Applied universal interaction suppression directly to `img`, `image`, and `picture img` elements, ensuring standalone and non-linked media can never be clicked, right-clicked, dragged, or hovered.
+    - Specifically targeted all `.png` and `.svg` files site-wide via case-insensitive attribute selectors (`img[src$=".png" i]`, `img[src*=".png?" i]`, `img[src$=".svg" i]`, `img[src*=".svg?" i]`).
+    - Anchors wrapping images continue to receive pointer events seamlessly via event bubbling/pass-through while retaining `cursor: pointer`.
+  - **Component-Level Hardening Across All 12 Assets**:
+    - Hardened `darkside-studio-logo-black.png`, `Brave-origin-Profile-Light.svg`, `gboard-logo.svg`, `Phone-AppLogo-Green.svg`, `winforge-logo.png`, `battery-logo.svg`, `instagram-logo.svg`, `wasm-logo.svg`, `vectordrawable-logo.png`, `atom-symbol-svgrepo-com.svg`, `emoji3d-512.png`, and `wallet-flutter-logo.svg` with explicit `pointer-events-none select-none` and `draggable={false}` properties in:
+      - `src/components/ProjectCard.tsx`
+      - `src/app/page.tsx`
+      - `src/components/Footer.tsx`
+      - `src/components/Hero.tsx`
+      - `src/components/Navbar.tsx`
+      - `src/components/CommandPalette.tsx`
+      - `src/components/QrCodeModal.tsx`
+- **Files Modified**:
+  - `src/app/globals.css`
+  - `src/components/ProjectCard.tsx`
+  - `src/app/page.tsx`
+  - `src/components/Footer.tsx`
+  - `src/components/Hero.tsx`
+  - `src/components/Navbar.tsx`
+  - `src/components/CommandPalette.tsx`
+  - `src/components/QrCodeModal.tsx`
+  - `Version.md`
+- **Status**: 100% (Completed & Synced)

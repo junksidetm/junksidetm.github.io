@@ -219,13 +219,15 @@ export default function HomePage() {
                               <img
                                 src="/emoji3d-512.png"
                                 alt="Google 3D Emoji"
-                                className="w-full h-full object-contain"
+                                draggable={false}
+                                className="w-full h-full object-contain pointer-events-none select-none"
                               />
                             ) : (
                               <img
                                 src="/atom-symbol-svgrepo-com.svg"
                                 alt="Physics Wonderland"
-                                className="w-full h-full object-contain"
+                                draggable={false}
+                                className="w-full h-full object-contain pointer-events-none select-none"
                               />
                             )}
                           </div>

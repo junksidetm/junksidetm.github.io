@@ -100,7 +100,8 @@ export const QrCodeModal: React.FC<QrCodeModalProps> = ({ item, onClose }) => {
           <img
             src={qrImageUrl}
             alt={`QR Code for ${name}`}
-            className="w-48 h-48 object-contain"
+            draggable={false}
+            className="w-48 h-48 object-contain pointer-events-none select-none"
           />
           <p className="mt-3 text-xs text-slate-700 font-mono font-medium text-center">
             {promptText}

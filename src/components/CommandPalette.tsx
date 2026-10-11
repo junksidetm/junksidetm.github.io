@@ -90,7 +90,8 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
                       <img
                         src={project.icon}
                         alt=""
-                        className="w-full h-full object-contain"
+                        draggable={false}
+                        className="w-full h-full object-contain pointer-events-none select-none"
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = "/icons.svg";
                         }}

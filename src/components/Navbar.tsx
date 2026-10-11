@@ -29,7 +29,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
           <img 
             src="/codeium-logo.svg" 
             alt="Codeium Logo" 
-            className="w-8 h-8 sm:w-9 sm:h-9 object-contain" 
+            draggable={false}
+            className="w-8 h-8 sm:w-9 sm:h-9 object-contain pointer-events-none select-none" 
           />
           <span className="font-extrabold tracking-tight text-white text-base sm:text-lg">
             Codeium
