@@ -8,6 +8,7 @@ import { ProjectCard } from "../components/ProjectCard";
 import { QrCodeModal, QrModalItem } from "../components/QrCodeModal";
 import { CommandPalette } from "../components/CommandPalette";
 import { Footer } from "../components/Footer";
+import { CodeiumSkyline } from "../components/CodeiumSkyline";
 import { PROJECTS, Project } from "../data/projects";
 import { 
   Sparkles, 
@@ -72,6 +73,9 @@ export default function HomePage() {
         id="showcase-section"
         className="w-full relative z-10 pt-1"
       >
+        {/* Codeium 3D Isometric Skyline Vector: Positioned between Footer (above) & PS (below) */}
+        <CodeiumSkyline />
+
         {/* Distorted / Blurred Top Bar on PS with Codeium Logo & Search Bar */}
         <Navbar onOpenSearch={() => setIsCommandPaletteOpen(true)} />
 

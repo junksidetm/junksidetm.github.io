@@ -392,3 +392,28 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
   - `src/data/projects.ts`
   - `Version.md`
 - **Status**: 100% (Completed & Synced)
+
+## [2026-10-11 15:40:00 IST] - Global Linked-Image Context Menu Override & Codeium 3D Skyline Transition
+- **Action**: Implemented global hit-testing bypass architecture for linked images and deployed the official full-bleed responsive Codeium 3D vector skyline transition:
+  - **Global Linked Image & Media Protection (`src/app/globals.css`)**:
+    - Architected `pointer-events: none` bypass across all images wrapped in `<a>` tags (`a > img`, `a > svg`, `a > svg *`, `a > picture > img`), removing images from the browser's spatial hit-testing tree.
+    - Forces Chrome, Firefox, Safari, and Edge to strictly resolve native hyperlink context menus ("Open link in new tab", "Copy link address") without displaying media actions ("Save image as...", "Copy image").
+    - Implemented case-insensitive attribute suffix and substring selectors for `.png` and `.svg` files (`a img[src$=".png" i]`, `a img[src*=".png?" i]`, `a img[src$=".svg" i]`, `a img[src*=".svg?" i]`).
+    - Enforced `-webkit-touch-callout: none` across mobile WebKit, suppressing long-press action sheets and preview cards on iOS Safari.
+    - Disabled ghost dragging (`-webkit-user-drag: none; user-drag: none;`) and accidental media text selection (`user-select: none;`) globally across all site images while preserving `cursor: pointer` on parent anchors (`a:has(> img)`).
+  - **Codeium 3D Skyline Transition (`src/components/CodeiumSkyline.tsx`)**:
+    - Created dedicated responsive full-bleed component embedding the official transparent vector asset (`public/Codeium - Footer SVG.svg`).
+    - Positioned at the boundary between the Hero landing area's footer (above) and the All Project Showcase section (PS, below).
+    - Integrated IntersectionObserver-driven scroll entrance animation smoothly translating the isometric skyline up (`translate-y-12 sm:translate-y-16` to `translate-y-0`) with hardware-accelerated GPU transitions (`gpu-layer`).
+    - Scaled across all device viewports from mobile smartphones to ultra-wide displays with responsive heights (`min-h-[85px]` to `max-h-[260px]`).
+    - Configured as an unclickable, undraggable, unhoverable background element (`pointer-events-none select-none`) backed by an ambient purple spotlight flare and architectural dividing glow line, illuminating the showcase below.
+  - **Showcase Integration (`src/app/page.tsx`)**:
+    - Embedded `<CodeiumSkyline />` directly at the entry of `#showcase-section`, providing a seamless transition when navigating down from MVA via manual scrolling or the "Let's Deep Dive" action.
+- **Files Modified / Created**:
+  - `src/app/globals.css`
+  - `src/components/CodeiumSkyline.tsx`
+  - `src/app/page.tsx`
+  - `public/Codeium - Footer SVG.svg`
+  - `public/Codeium - Footer SVG Black Background.svg`
+  - `Version.md`
+- **Status**: 100% (Completed & Synced)

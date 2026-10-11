@@ -97,3 +97,59 @@ body {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+/* ============================================================================
+ * GLOBAL IMAGE HIT-TESTING & LINK-ONLY CONTEXT MENU ENGINE
+ * ============================================================================
+ * Disables browser image-specific context menus ("Save image as...", "Copy image")
+ * for all linked images globally by bypassing pointer hit-testing directly to the
+ * parent <a> anchor element. Also suppresses native image drag and selection.
+ */
+
+/* Enforce pointer cursor on anchors wrapping images or SVGs */
+a:has(> img),
+a:has(> svg),
+a:has(> picture) {
+  cursor: pointer;
+}
+
+/* Universal linked images, SVGs, and picture sources */
+a > img,
+a > svg,
+a > svg *,
+a > picture > img,
+a > picture > source,
+a img,
+a svg {
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+/* Extension-specific targeting for .png and .svg (including query parameters) */
+a img[src$=".png" i],
+a img[src*=".png?" i],
+a img[src$=".svg" i],
+a img[src*=".svg?" i],
+a object[type="image/svg+xml"],
+a embed[type="image/svg+xml"] {
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+/* Global media behavior: prevent ghost dragging and selection on all images */
+img,
+svg {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
