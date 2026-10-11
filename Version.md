@@ -432,3 +432,17 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
   - `src/components/CodeiumSkyline.tsx`
   - `Version.md`
 - **Status**: 100% (Completed & Synced)
+
+## [2026-10-11 15:58:30 IST] - 2x Vertical Spacing Reduction for Codeium Skyline Above Footer
+- **Action**: Calibrated vertical margins to compress the transition zone between the Gboard Patches card and the Codeium 3D skyline by exactly 2x:
+  - **Directory Section Margin (`src/app/page.tsx`)**:
+    - Reduced directory grid section bottom margin from `mb-20` (80px) down to `mb-10` (40px).
+  - **Skyline Top Padding (`src/components/CodeiumSkyline.tsx`)**:
+    - Reduced vector component top padding from `pt-10 sm:pt-16 md:pt-24` down to `pt-5 sm:pt-8 md:pt-12` across all breakpoints.
+  - **Footer Boundary Docking Preserved**:
+    - Maintained zero vertical gap at the bottom (`pb-0 mb-0`, `items-end`, `mt-0` on footer), keeping the vector baseline flush against `border-t border-purple-500/15`.
+- **Files Modified**:
+  - `src/app/page.tsx`
+  - `src/components/CodeiumSkyline.tsx`
+  - `Version.md`
+- **Status**: 100% (Completed & Synced)

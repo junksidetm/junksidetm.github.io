@@ -331,7 +331,7 @@ export default function HomePage() {
           {/* =====================================================================
               ALL PROJECTS DIRECTORY GRID
           ===================================================================== */}
-          <section className="mb-20">
+          <section className="mb-10">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">

@@ -51,7 +51,7 @@ export const CodeiumSkyline: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full overflow-hidden select-none pointer-events-none z-10 pt-10 sm:pt-16 md:pt-24 pb-0 mb-0"
+      className="relative w-full overflow-hidden select-none pointer-events-none z-10 pt-5 sm:pt-8 md:pt-12 pb-0 mb-0"
       aria-hidden="true"
     >
       {/* Ambient purple spotlight halo allowing the vector skyline to shine above the footer */}
