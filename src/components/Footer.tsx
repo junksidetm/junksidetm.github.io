@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
 
   return (
     <>
-      <footer className="mt-20 border-t border-purple-500/15 bg-[#070514]/95 py-16 px-4 sm:px-6 lg:px-12 text-slate-400 relative z-10 backdrop-blur-xl">
+      <footer className="mt-0 border-t border-purple-500/15 bg-[#070514]/95 py-16 px-4 sm:px-6 lg:px-12 text-slate-400 relative z-10 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto">
           {/* =========================================================================
               SITEMAP GRID & BRAND BANNER ROW

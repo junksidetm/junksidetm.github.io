@@ -73,9 +73,6 @@ export default function HomePage() {
         id="showcase-section"
         className="w-full relative z-10 pt-1"
       >
-        {/* Codeium 3D Isometric Skyline Vector: Positioned between Footer (above) & PS (below) */}
-        <CodeiumSkyline />
-
         {/* Distorted / Blurred Top Bar on PS with Codeium Logo & Search Bar */}
         <Navbar onOpenSearch={() => setIsCommandPaletteOpen(true)} />
 
@@ -369,6 +366,9 @@ export default function HomePage() {
             )}
           </section>
         </main>
+
+        {/* Codeium 3D Isometric Skyline Vector: Placed below Gboard Patches in PS & directly touching Footer boundary */}
+        <CodeiumSkyline />
 
         {/* Footer with Sitemap, Copyright & Brand Banner at Side */}
         <Footer />

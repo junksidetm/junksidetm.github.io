@@ -417,3 +417,18 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
   - `public/Codeium - Footer SVG Black Background.svg`
   - `Version.md`
 - **Status**: 100% (Completed & Synced)
+
+## [2026-10-11 15:53:00 IST] - Calibration of Codeium 3D Skyline Positioning & Footer Boundary Docking
+- **Action**: Calibrated the exact placement of the Codeium 3D isometric skyline SVG (`CodeiumSkyline.tsx`):
+  - **Showcase & Footer Boundary Docking (`src/app/page.tsx`)**:
+    - Relocated `<CodeiumSkyline />` from the top of the showcase section to its designated position directly below the Gboard Patches card at the end of the Product Showcase (PS) directory grid, and immediately above the site footer.
+  - **Flush Boundary Alignment (`src/components/Footer.tsx` & `src/components/CodeiumSkyline.tsx`)**:
+    - Eliminated vertical spacing between the vector asset and the footer by removing the footer's top margin (`mt-0` instead of `mt-20`) and configuring the vector image container with `pb-0 mb-0`, `items-end`, and `block mb-0 align-bottom`.
+    - The bottom border baseline (`#E892F5` horizontal band) of `Codeium - Footer SVG.svg` now directly and seamlessly touches the top border boundary line (`border-t border-purple-500/15`) of `<footer ...>`.
+    - Preserved generous top padding (`pt-10 sm:pt-16 md:pt-24`) below Gboard Patches and an upward-shining ambient purple spotlight halo (`from-purple-700/25 via-purple-900/15 to-transparent blur-3xl`).
+- **Files Modified**:
+  - `src/app/page.tsx`
+  - `src/components/Footer.tsx`
+  - `src/components/CodeiumSkyline.tsx`
+  - `Version.md`
+- **Status**: 100% (Completed & Synced)
