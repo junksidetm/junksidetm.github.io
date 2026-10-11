@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { CosmicBackground } from "../components/CosmicBackground";
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
@@ -29,6 +29,17 @@ export default function HomePage() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
   const [activeMasterpiece, setActiveMasterpiece] = useState<"emoji3d" | "physics">("emoji3d");
   const [copiedClone, setCopiedClone] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setIsCommandPaletteOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const handleDeepDive = () => {
     const el = document.getElementById("showcase-section");

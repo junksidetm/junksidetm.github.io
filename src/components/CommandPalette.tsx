@@ -14,18 +14,24 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!isOpen) return;
+
+    setQuery("");
+    setCopiedId(null);
+
     const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
         onClose();
       }
       if (e.key === "Escape") {
+        e.preventDefault();
         onClose();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [onClose]);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -46,8 +52,14 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-2xl rounded-2xl bg-[#0f0b24] border border-purple-500/30 shadow-2xl shadow-purple-900/40 overflow-hidden flex flex-col max-h-[80vh]">
+    <div 
+      className="fixed inset-0 z-50 flex items-start justify-center pt-20 p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <div 
+        className="relative w-full max-w-2xl rounded-2xl bg-[#0f0b24] border border-purple-500/30 shadow-2xl shadow-purple-900/40 overflow-hidden flex flex-col max-h-[80vh]"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Search Input Bar */}
         <div className="flex items-center px-4 py-3.5 border-b border-purple-500/20 bg-[#140e2e]">
           <Search size={18} className="text-purple-400 mr-3 shrink-0" />

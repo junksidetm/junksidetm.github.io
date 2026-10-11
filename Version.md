@@ -473,3 +473,11 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
   - `src/components/QrCodeModal.tsx`
   - `Version.md`
 - **Status**: 100% (Completed & Synced)
+
+## [2026-10-11 18:38:40 IST] - Fix Command Palette Global Keyboard Shortcut (Ctrl+K / Cmd+K)
+- **Action**: Fixed global keyboard shortcut handler so pressing `Ctrl + K` (Windows/Linux) or `⌘K` (macOS) properly opens and toggles the interactive Command Palette search modal from anywhere on the portfolio page.
+- **Files Modified**:
+  - `src/app/page.tsx`: Added global `keydown` event listener in `useEffect` to toggle `isCommandPaletteOpen` on `Ctrl+K` / `⌘K` (with case-insensitive key detection).
+  - `src/components/CommandPalette.tsx`: Updated keyboard listener to dismiss on `Ctrl+K` or `Escape`, reset search query on open, and added backdrop click-to-dismiss behavior with stopped propagation on the modal dialog.
+  - `Version.md`: Appended tracking entry.
+- **Status**: 100% (Completed & Synced)
