@@ -503,3 +503,10 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
   - `.gitlab-ci.yml`
   - `Version.md`
 - **Status**: 90% (Pending first pipeline result)
+
+## [2026-10-13 06:53:56 IST] - Codeberg Pages job builds from the Codeberg tree
+- **Action**: First `codeberg_pages` run reused the GitLab artifact, so the published site carried GitLab links. The job now clones the Codeberg repo (links already rewritten for Codeberg), builds it, and pushes the `pages` branch.
+- **Files Modified**:
+  - `.gitlab-ci.yml`
+  - `Version.md`
+- **Status**: 90% (Pending pipeline result)

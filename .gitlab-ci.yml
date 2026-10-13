@@ -20,20 +20,33 @@ pages:
     - if: $CI_COMMIT_BRANCH == "main"
 
 # Codeberg has no hosted Actions runner, so publish its `pages` branch from here.
+# Builds the Codeberg-flavoured tree (links rewritten by sync-mirrors) and pushes it.
 # Needs the masked CI variable CODEBERG_TOKEN (Codeberg token with repository write).
 codeberg_pages:
   stage: .post
-  image: alpine:latest
-  needs: ["pages"]
-  before_script:
-    - apk add --no-cache git
+  image: node:22
+  needs: []
+  variables:
+    NEXT_TELEMETRY_DISABLED: "1"
   script:
-    - cd public
+    - export CB="https://mrdarksidetm:${CODEBERG_TOKEN}@codeberg.org/mrdarksidetm/pages.git"
+    - git clone -q "$CB" cb-src
+    - |
+      for i in 1 2 3 4 5 6 7 8 9 10 11 12; do
+        [ "$(git -C cb-src log -1 --format=%s)" = "$CI_COMMIT_TITLE" ] && break
+        sleep 15; git -C cb-src pull -q
+      done
+    - cd cb-src
+    - corepack enable
+    - corepack prepare pnpm@9 --activate
+    - pnpm install --no-frozen-lockfile
+    - pnpm build
+    - cd out
     - git init -q -b pages
     - git config user.name mrdarksidetm
     - git config user.email ajukr99901@gmail.com
     - git add -A
     - git commit -q -m "Deploy $CI_COMMIT_SHORT_SHA"
-    - git push -f "https://mrdarksidetm:${CODEBERG_TOKEN}@codeberg.org/mrdarksidetm/pages.git" pages
+    - git push -f "$CB" pages
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
