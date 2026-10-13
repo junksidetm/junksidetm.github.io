@@ -510,3 +510,10 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
   - `.gitlab-ci.yml`
   - `Version.md`
 - **Status**: 90% (Pending pipeline result)
+
+## [2026-10-13 12:45 IST] fix: clone Codeberg main in codeberg_pages job
+- **Action**: `codeberg_pages` failed (`cd: out: No such file or directory`) because Codeberg's default branch is now `pages`, so `git clone` fetched the built output instead of the source. The clone now passes `-b main`.
+- **Files Modified**:
+  - `.gitlab-ci.yml`
+  - `Version.md`
+- **Status**: 90% (Pending pipeline result)

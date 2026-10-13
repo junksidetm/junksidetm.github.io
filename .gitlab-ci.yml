@@ -30,7 +30,7 @@ codeberg_pages:
     NEXT_TELEMETRY_DISABLED: "1"
   script:
     - export CB="https://mrdarksidetm:${CODEBERG_TOKEN}@codeberg.org/mrdarksidetm/pages.git"
-    - git clone -q "$CB" cb-src
+    - git clone -q -b main "$CB" cb-src
     - |
       for i in 1 2 3 4 5 6 7 8 9 10 11 12; do
         [ "$(git -C cb-src log -1 --format=%s)" = "$CI_COMMIT_TITLE" ] && break
