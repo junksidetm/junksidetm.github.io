@@ -481,3 +481,12 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
   - `src/components/CommandPalette.tsx`: Updated keyboard listener to dismiss on `Ctrl+K` or `Escape`, reset search query on open, and added backdrop click-to-dismiss behavior with stopped propagation on the modal dialog.
   - `Version.md`: Appended tracking entry.
 - **Status**: 100% (Completed & Synced)
+
+## [2026-10-13 05:55:00 IST] - GitLab / Codeberg Pages equivalents of the portal
+- **Action**: Added Pages deployment for the mirrors. GitLab project renamed `mrdarksidetm.github.io` -> `mrdarksidetm.gitlab.io` (serves https://mrdarksidetm.gitlab.io); Codeberg `pages` repo serves https://mrdarksidetm.codeberg.page from its `pages` branch. `scripts/sync-mirrors.js` now rewrites GitHub repo/profile/Pages URLs in `src/**`, `*.md`, `*.html` to the mirror's own URLs at sync time (raw.githubusercontent.com, releases and actions links are left as is). This repo's GitHub tree is unchanged by the rewrite.
+- **Files Modified**:
+  - `.gitlab-ci.yml` (new): Next.js static export published via GitLab Pages.
+  - `.forgejo/workflows/pages.yml` (new): builds the export and pushes the `pages` branch (needs `CODEBERG_TOKEN` secret).
+  - `README.md`: fixed GitLab mirror link, added live Pages links.
+  - `Version.md`
+- **Status**: 90% (Codeberg deploy blocked until a valid `CODEBERG_TOKEN` secret exists)

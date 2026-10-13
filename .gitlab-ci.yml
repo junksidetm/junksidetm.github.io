@@ -1,0 +1,20 @@
+# GitLab Pages for the Codeium portal (https://mrdarksidetm.gitlab.io)
+# Links in this tree are rewritten to GitLab equivalents by scripts/sync-mirrors.js.
+image: node:22
+
+pages:
+  stage: deploy
+  variables:
+    NEXT_TELEMETRY_DISABLED: "1"
+  script:
+    - corepack enable
+    - corepack prepare pnpm@9 --activate
+    - pnpm install --no-frozen-lockfile
+    - pnpm build
+    - rm -rf public
+    - mv out public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"

@@ -2,7 +2,7 @@
   <img src="public\Codeium\Codeium Banner\SVG\Codeium - Banner Transparent White.svg" alt="Codeium Banner" height="200"/><br><br>
   <a href="https://github.com/junksidetm/junksidetm.github.io"><img src="https://img.shields.io/badge/GitHub-Main-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub Main" /></a>
   <a href="https://codeberg.org/mrdarksidetm/pages"><img src="https://img.shields.io/badge/Codeberg-Mirror-2185d0?style=flat-square&logo=codeberg&logoColor=white" alt="Codeberg Mirror" /></a>
-  <a href="https://gitlab.com/mrdarksidetm/mrdarksidetm.github.io"><img src="https://img.shields.io/badge/GitLab-Mirror-fc6d26?style=flat-square&logo=gitlab&logoColor=white" alt="GitLab Mirror" /></a>
+  <a href="https://gitlab.com/mrdarksidetm/mrdarksidetm.gitlab.io"><img src="https://img.shields.io/badge/GitLab-Mirror-fc6d26?style=flat-square&logo=gitlab&logoColor=white" alt="GitLab Mirror" /></a>
   <a href="https://github.com/junksidetm/junksidetm.github.io/actions"><img src="https://github.com/junksidetm/junksidetm.github.io/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Pages Deployment" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" alt="License: MIT" /></a>
 
@@ -35,7 +35,8 @@ All software in this arsenal follows the **Local-First, Privacy-First Mandate**:
 
 - **Main (GitHub)**: [github.com/junksidetm/junksidetm.github.io](https://github.com/junksidetm/junksidetm.github.io)
 - **Mirror (Codeberg)**: [codeberg.org/mrdarksidetm/pages](https://codeberg.org/mrdarksidetm/pages)
-- **Mirror (GitLab)**: [gitlab.com/mrdarksidetm/mrdarksidetm.github.io](https://gitlab.com/mrdarksidetm/mrdarksidetm.github.io)
+- **Mirror (GitLab)**: [gitlab.com/mrdarksidetm/mrdarksidetm.gitlab.io](https://gitlab.com/mrdarksidetm/mrdarksidetm.gitlab.io), live at [mrdarksidetm.gitlab.io](https://mrdarksidetm.gitlab.io)
+- **Live (Codeberg Pages)**: [mrdarksidetm.codeberg.page](https://mrdarksidetm.codeberg.page)
 
 ## 📄 License
 
