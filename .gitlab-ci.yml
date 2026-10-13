@@ -18,3 +18,22 @@ pages:
       - public
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
+
+# Codeberg has no hosted Actions runner, so publish its `pages` branch from here.
+# Needs the masked CI variable CODEBERG_TOKEN (Codeberg token with repository write).
+codeberg_pages:
+  stage: .post
+  image: alpine:latest
+  needs: ["pages"]
+  before_script:
+    - apk add --no-cache git
+  script:
+    - cd public
+    - git init -q -b pages
+    - git config user.name mrdarksidetm
+    - git config user.email ajukr99901@gmail.com
+    - git add -A
+    - git commit -q -m "Deploy $CI_COMMIT_SHORT_SHA"
+    - git push -f "https://mrdarksidetm:${CODEBERG_TOKEN}@codeberg.org/mrdarksidetm/pages.git" pages
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"

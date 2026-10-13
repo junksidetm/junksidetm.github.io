@@ -496,3 +496,10 @@ Strict Append Pattern: All updates are permanently appended to the bottom.
 - **Files Modified**:
   - `Version.md`
 - **Status**: 100% (Pushed; deploy result to be verified)
+
+## [2026-10-13 06:49:12 IST] - Publish Codeberg Pages from GitLab CI
+- **Action**: Codeberg only offers hosted Actions in a limited way and none of the `.forgejo` workflows were ever queued. Added a `codeberg_pages` job to `.gitlab-ci.yml` that pushes the built site to the Codeberg `pages` branch (masked CI variable `CODEBERG_TOKEN`). The `.forgejo` Pages workflow is left in place but does not run.
+- **Files Modified**:
+  - `.gitlab-ci.yml`
+  - `Version.md`
+- **Status**: 90% (Pending first pipeline result)
